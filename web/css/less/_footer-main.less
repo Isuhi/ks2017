@@ -1,0 +1,135 @@
+.m-footer {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer__block,
+.footer-nav__item {
+  flex-grow: 1;
+}
+
+.footer__block{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+.footer__nav {
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+	justify-content: space-around;
+  flex-grow: 1;
+
+  & img {
+  	margin: auto;
+  }
+}
+
+.footer-nav__item,
+.footer__copy {
+  background-image: url("../img/fon-menu2.jpg");
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #292626;
+  letter-spacing: 0.02em;
+  margin: 5px;
+  padding: 10px;
+  /* min-width: 150px; */
+}
+
+.footer-nav__item a{
+	background: linear-gradient(#f5f1e0, #FCD1A6);
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px #666;
+	color: #6c190f;
+	display: block;
+	padding: 2px 5px 2px 15px;
+	text-decoration: none;
+	transition: all 0.25s linear 0s;
+	font-size: 20px;
+
+	&:hover{
+		color:#000;		 
+		background: #D7CC9E;
+		/*margin-left:1px;*/
+		border-radius: 5px;
+	}
+}
+
+.footer__copy-p {
+	margin: auto;
+	font-size: 16px;
+	padding: 0 5px;
+}
+
+@media @tablet-widths {
+	.m-footer {
+		background:
+			url(/img/footer_bg_768_n2.jpg) no-repeat center center,
+			url(/img/footer_bg_1200_n3.jpg) center center;
+		/* background-size: cover; */
+		/* background-position: ; */
+		/* height: 100px; */
+		/* display: block; */
+		align-items: center;
+		flex-flow: column wrap;
+	}
+
+	.footer__nav {
+		/* min-height: 100px; */
+		flex-flow: column wrap;
+	}
+
+	.footer-nav__item {
+  background-image: none;
+  border-radius: none;
+  box-shadow: none;
+  letter-spacing: 0.02em;
+  margin: 5px auto 0;
+  padding: 0;
+  min-width: 175px;
+}
+	.footer__copy {
+  margin: 5px auto;
+  padding: 2px;
+}
+
+	.footer-nav__item a{
+	/* background: linear-gradient(#f5f1e0, #FCD1A6); */
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px #666;
+	color: #6c190f;
+	display: block;
+	padding: 2px 20px;
+	text-decoration: none;
+	transition: all 0.25s linear 0s;
+	font-size: 16px;
+
+		&:hover{
+			color:#000;		 
+			background: #D7CC9E;
+			/*margin-left:1px;*/
+			border-radius: 5px;
+		}
+	}
+}
+
+@media @desktop-widths {
+	.m-footer {
+		background:
+			url(/img/footer_bg_1200_n2.jpg) no-repeat center center,
+			url(/img/footer_bg_1800_n3.jpg) center center;
+		/* height: 100px; */
+		/* display: block; */
+	}
+}

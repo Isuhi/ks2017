@@ -1,0 +1,90 @@
+.search {
+  margin: 0 5px 5px;
+  /* padding: 5px; */
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+	align-items: center;
+}
+
+.search-form {
+
+}
+
+.search-banner {
+	display: flex;
+	flex-direction: column;
+  margin: auto;
+  max-width: 510px;
+}
+
+.search-form{
+  display: flex;
+	margin: 0 auto;
+	width: 100%;
+	/* max-width: 500px; */
+}
+
+.search-form__input {
+	height: 41px;
+	flex-grow: 1;
+	background-color: #f4eabc;
+	font-size: 18px;
+	border-radius: 8px;
+	border: 1px solid #6c190f;
+	padding: 0 0 0 10px;
+	color: #6c190f;
+
+	&:focus {
+
+	}
+}
+
+.search-form__btn {
+	cursor: pointer;
+	position: relative;
+	display: block;
+	padding: 17px 21px;
+	background-color: #f4eabc;
+  border-radius: 8px;
+	border: 1px solid #6c190f;
+	height: 41px;
+	width: 70px;
+	&:hover {
+		background-color: #E0D6A8;
+	}
+
+	&:focus {
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 10px;
+		left: 23px;
+		width: 20px;
+		height: 20px;
+		background-image: url("../img/ic_search.svg");
+
+	}
+}
+
+@media @tablet-widths {
+	.search {
+		background-image: url("../img/fon-menu2.jpg");
+	  border-radius: 10px;
+	  box-shadow: 3px 3px 3px #292626;
+	  letter-spacing: 0.02em;
+	  margin: 5px;
+	  padding: 5px;
+	  flex: 1;
+	}
+
+	.search-banner {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		max-width: 100%;
+	}
+}
