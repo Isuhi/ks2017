@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,inicial-scale-1">
-	<title>Главная страница KuklaStadt</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-</head>
-<body class="body-ks">
+<?php
+ 
+use app\components\widgets\Alert;
+use app\modules\admin\rbac\Rbac as AdminRbac;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+ 
+/* @var $this \yii\web\View */
+/* @var $content string */
+ 
+?>
+<?php $this->beginContent('@app/views/layouts/layout.php'); ?>
+
 	<header class="header_main">
 		<h1 class="visually-hidden">KuklaStadt - сайт о куклах, об истории кукол, о жизни кукол, обо всем, что их окружает и создано для них</h1>
 		<div class="header_main__logo">
 			<a class="on-main" href="/"></a>
-			<a href="#" title="На главную страницу"><img src="/web/img/logo2-1.jpg" alt="KuklaStadt - сайт о куклах" width="320px" higth="100px"></a>
+			<a href="#" title="На главную страницу"><img src="/web/img/logo2-1.jpg" alt="KuklaStadt - сайт о куклах" ></a>
 		</div><!-- ./header_main__logo -->
 		<nav class="menu_main menu_main-closed menu_main-nojs">
 			<button class="menu_main__toggle" type="button">Открыть меню</button>
@@ -24,7 +28,9 @@
 					<li class="menu_main__item"><a href="">Карта сайта</a></li>
 					<li class="menu_main__item menu_main__item-active"><a href="">Контакты</a></li>
 					<li class="menu_main__item"><a href="">Новости</a></li>
-					<li class="menu_main__user_item"><a href="" class="menu_main__user_login">Вход  / Регистрация</a>
+					<li class="menu_main__user_item"><a href="" class="menu_main__user_login">Вход</a>
+					</li>
+					<li class="menu_main__user_item"><a href="" class="menu_main__user_login">Регистрация</a>
 					</li>
 				</ul>
 				<!-- <ul class="menu_main__user_items">
@@ -42,12 +48,12 @@
 		</section><!-- ./menu_main__search -->
 		<aside class="search-banner__banner">
 			<div class="search-banner__banner-wrap"> 
-				<a href="#" target=_blank><img src="/img/banner_dif_500x50_v2.jpg" width="500" height="50" border="0" alt="dif" /></a>
+				<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_narodnaja_v3.jpg" width="500" height="50" border="0" alt="dif" /></a>
 			</div>
 		</aside><!-- ./search-banner__banner -->
 		<aside class="search-banner__banner">
 			<div class="search-banner__banner-wrap"> 
-				<a href="#" target=_blank><img src="/img/banner_ssd_500x50_v2.jpg" width="500" height="50" border="0" alt="ssd" /></a>
+				<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_valjanaja_v2.jpg" width="500" height="50" border="0" alt="ssd" /></a>
 			</div>
 		</aside><!-- ./search-banner__banner -->
 	</section>
@@ -63,7 +69,7 @@
 		      <p>Все материалы сайта разделены по двум главным критериям - из чего сделана кукла и для чего она появилась на свет. Поэтому слева вы видите два меню, пункты которых говорят сами за себя. Единственное уточнение - статьи на сайте могут быть информационными и практическими, наподобие мастер-классов. В пунктах меню, думаю, разберетесь сами.</p>
 		      <p>Получить основную информацию о нашем проекте вы можете, посетив странички, ссылки на которые находятся в верхнем меню в шапке сайта. И еще. Хочу вас познакомить с самым первым жителем нашего города - маленькой девочкой Веселиной:</p>
 		      <figure class="m-content__figure">
-		        <img src="img/Veselina.png" alt="Веселина - главный экскурсовод города KuklaStadt" title="Веселина - главный экскурсовод города KuklaStadt">
+		        <img src="/web/img/Veselina.png" alt="Веселина - главный экскурсовод города KuklaStadt" title="Веселина - главный экскурсовод города KuklaStadt">
 		        <figcaption class="m-content__figcaption"> «Всем привет! Мне тут надо сбегать кое-куда, так что вы пока погуляйте по нашим страничкам, а я потом прибегу и все-все вам расскажу» </figcaption>
 		      </figure>
 		      <p>Она получилась уж очень любопытной и общительной куклой. К тому же, как любой нормальный маленький ребенок, Веселина так и норовит куда-нибудь залезть и кого-нибудь там найти.</p>
@@ -178,19 +184,15 @@
 				<section class="m-all__m-sidebar m-sidebar m-sidebar__rightbar">
 					<aside class="m-sidebar__reklama">
 						<div class="block_reklami-right">
-							<a href="http://suharikisdegtem.ru/"><img src="/img/banner_ssd_240x400.jpg" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_240x400_mc.gif" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
 						</div>
 					</aside>
 					<aside class="m-sidebar__reklama">
 						<div class="block_reklami-right">
-							<a href="http://suharikisdegtem.ru/"><img src="/img/banner_ssd_240x400_n2.jpg" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_240x400_val.gif" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
 						</div><!-- /.m-content__wrapper -->
 					</aside>
-					<aside class="m-sidebar__reklama">
-						<div class="block_reklami-right">
-							<a href="http://suharikisdegtem.ru/"><img src="/img/banner_dif_240x400_v1.jpg" alt="Дом интересных фактов"></a>
-						</div><!-- /.m-content__wrapper -->
-					</aside>
+
 				</section><!-- ./m-all__m-sidebar m-sidebar__rightbar -->
 		</section><!-- /.m-all__m-content -->
 		<section class="m-all__m-sidebar m-sidebar m-sidebar__leftbar">
@@ -284,7 +286,7 @@
 					<h2 class="m-sidebar__header-h2">Реклама</h2>
 				</header>
 				<div class="block_reklami-left">
-					<a href="http://suharikisdegtem.ru/"><img src="/img/banner_dif_280x460_v1.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+					<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_280x460_igrovaja_v1.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
 				</div>
 			</aside>	
 			<aside class="m-sidebar__menu">
@@ -292,7 +294,7 @@
 							<h2 class="m-sidebar__header-h2">Реклама</h2>
 						</header>
 						<div class="block_reklami-left">
-							<a href="http://suharikisdegtem.ru/"><img src="/img/banner_ssd_280x460_v3.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_280x460_obrjadovaja_v2.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
 						</div>
 					</aside>	
 			<!-- <aside class="m-sidebar__menu">
@@ -359,21 +361,4 @@
 			</aside>
 		</section><!-- ./m-all__m-sidebar m-sidebar__leftbar -->
 	</section><!-- /.m-all -->
-	<footer class="m-footer">
-		<nav class="footer__block footer__nav">
-				<div class="footer-nav__item"><a href="#">К началу страницы</a></div>
-				<div class="footer-nav__item"><a href="#menu_cat">К меню категорий</a></div>
-		</nav>
-		<div class="footer__block footer__copy">
-			<img src="/img/fav_30.png" alt="">
-			<p class="footer__copy-p">&copy; <a href="#">KuklaStadt</a> 2014-2017</p>
-			<img src="/img/fav_30.png" alt="">
-		</div>
-	</footer><!-- ./m-footer -->
-
-	<script src="js/jquery-3.1.1.js"></script>
-	<link  href="css/fotorama.css" rel="stylesheet">
-	<script src="js/fotorama.js"></script>
-	<script src="js/script.js"></script>
-</body>
-</html>
+<?php $this->endContent(); ?>
