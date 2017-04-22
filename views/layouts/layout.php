@@ -32,11 +32,11 @@ AppAsset::register($this);
 				<div class="footer-nav__item"><a href="#menu_cat">К меню категорий</a></div>
 		</nav>
 		<div class="footer__block footer__copy">
-			<img src="/img/fav_30.png" alt="">
+			<img src="/web/img/fav_30.png" alt="">
 			<p class="footer__copy-p">&copy; <a href="#">KuklaStadt</a> 2014-2017</p>
-			<img src="/img/fav_30.png" alt="">
+			<img src="/web/img/fav_30.png" alt="">
 		</div>
-	</footer><!-- ./m-footer -->
+	</footer> ./m-footer 
 
 <?php $this->endBody() ?>
 </body>

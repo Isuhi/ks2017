@@ -11,27 +11,20 @@ use yii\widgets\Breadcrumbs;
  
 ?>
 <?php $this->beginContent('@app/views/layouts/layout.php'); ?>
-<header class="header_main">
-		<h1 class="visually-hidden">KuklaStadt - сайт о куклах, об истории кукол, о жизни кукол, обо всем, что их окружает и создано для них</h1>
 <?php
 NavBar::begin([
-    'brandLabel' => '<img src="/web/img/fav_30.png" alt="">',
+    'brandLabel' => Yii::$app->name,
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
-        'class' => 'navbar-default navbar-fixed-top',
+        'class' => 'navbar-inverse navbar-fixed-top',
     ],
 ]);
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'activateParents' => true,
     'items' => array_filter([
-        ['label' => Yii::t('app', 'NAV_HOME'), 
-						'url' => ['/main/default/index']
-				],
-        ['label' => Yii::t('app', 'NAV_ABOUT'), 
-						'url' => ['/main/default/about'],
-						'options' => ['class' => 'menu_main__item']
-				],
+        ['label' => Yii::t('app', 'NAV_HOME'), 'url' => ['/main/default/index']],
+        ['label' => Yii::t('app', 'NAV_ABOUT'), 'url' => ['/main/default/about']],
         ['label' => Yii::t('app', 'NAV_CONTACT'), 'url' => ['/main/contact/index']],
         Yii::$app->user->isGuest ?
             ['label' => Yii::t('app', 'NAV_SIGNUP'), 'url' => ['/user/default/signup']] :
@@ -50,21 +43,9 @@ echo Nav::widget([
                     'linkOptions' => ['data-method' => 'post']]
             ]] :
             false,
-			]),
-		]);
+]),
+]);
     NavBar::end();
 ?>
-		<div class="header_main__logo">
-			<a class="on-main" href="/"></a>
-			<a href="#" title="На главную страницу"><img src="/web/img/logo2-1.jpg" alt="KuklaStadt - сайт о куклах" ></a>
-		</div><!-- ./header_main__logo -->
-</header><!-- ./header_main -->
-<!--<div class="container">-->
-    <?= Breadcrumbs::widget([
-        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-    ]) ?>
-    <?= Alert::widget() ?>
-    <?= $content ?>
-<!--</div>-->
- 
+
 <?php $this->endContent(); ?>
