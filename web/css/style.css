@@ -442,7 +442,7 @@ template {
 }
 .header_main__logo {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 55px;
 }
 .header_main__logo img {
   /* 	width: 320px;
@@ -459,11 +459,63 @@ height: 100px; */
   /*text-indent:-5000em;*/
 }
 .navbar-brand {
-  padding: 9px 12px;
+  padding: 14px 10px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #6c190f;
+  border-bottom: 1px solid #d5cb9d;
+  border-radius: 10px;
+  display: block;
+  font-size: 17px;
+  margin-bottom: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #000;
+  background-color: #E0D6A8;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #000;
+  background-color: #E0D6A8;
+}
+.nav .open > a:hover,
+.nav .open > a:focus {
+  border-color: #d5cb9d;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #6c190f;
+  border-bottom: 1px solid #d5cb9d;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  padding: 5px 0 10px 30px;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+  color: #000;
+  background-color: #E0D6A8;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #000;
+  background-color: #E0D6A8;
+  pointer-events: none;
+  /* делаем ссылку некликабельной */
+  cursor: default;
+  /* устанавливаем курсор в виде стрелки */
 }
 @media (max-width: 767px) {
   .header_main {
     margin: 5px;
+    background-image: url("/web/img/header768_50.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 100px;
   }
   .navbar-default {
     background-color: #f4eabc;
@@ -487,6 +539,24 @@ height: 100px; */
   .navbar-default .navbar-toggle .icon-bar:hover {
     border-color: #000;
     background-color: #000;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border-color: #6c190f;
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #d7cc9e;
+    color: #000;
+    pointer-events: none;
+    /* делаем ссылку некликабельной */
+    cursor: default;
+    /* устанавливаем курсор в виде стрелки */
+  }
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    max-height: 400px;
   }
 }
 @media (min-width: 768px) {
@@ -517,6 +587,54 @@ height: 100px; */
     background-position: center center;
   }
   .header_main__logo img {
+    display: none;
+  }
+  .navbar-default .navbar-nav > li > a {
+    background-color: #F4EABC;
+    color: #6c190f;
+    border-bottom: 1px solid #d5cb9d;
+    border-radius: 10px;
+    display: block;
+    font-size: 16px;
+    margin: 7px 3px;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: none;
+  }
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus,
+  .navbar-default .navbar-nav > li > a:active {
+    color: #000;
+    background-color: #E0D6A8;
+  }
+  .navbar-default .navbar-nav > .active > a {
+    color: #000;
+    background-color: #E0D6A8;
+  }
+  .navbar-default .navbar-nav > .active > a:focus,
+  .navbar-default .navbar-nav > .active > a:hover {
+    color: #000;
+    background-color: #E0D6A8;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    position: absolute;
+  }
+  .dropdown-menu {
+    background-color: #f4eabc;
+    min-width: 100px;
+    padding: 2px;
+    text-align: center;
+  }
+  .navbar-nav > li > .dropdown-menu {
+    border-radius: 10px;
+    margin: 0;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .navbar-brand {
     display: none;
   }
 }
@@ -1082,7 +1200,7 @@ margin: 10px 0; */
   box-shadow: 3px 3px 3px #292626;
   margin: 0 5px 5px;
   padding: 5px 5px 5px;
-  max-width: 500px;
+  /* max-width: 500px; */
   min-height: 50px;
   display: -webkit-flex;
   display: -moz-flex;
@@ -1173,7 +1291,7 @@ margin: 10px 0; */
   display: flex;
   flex-direction: column;
   margin: auto;
-  max-width: 510px;
+  /* max-width: 510px; */
 }
 .search-form {
   display: flex;

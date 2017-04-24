@@ -15,7 +15,10 @@ use yii\widgets\Breadcrumbs;
 		<h1 class="visually-hidden">KuklaStadt - сайт о куклах, об истории кукол, о жизни кукол, обо всем, что их окружает и создано для них</h1>
 <?php
 NavBar::begin([
-    'brandLabel' => '<img src="/web/img/fav_30.png" alt="">',
+    'brandLabel' => 'KuklaStadt - сайт о куклах',
+/*    'brandLabel' => Yii::$app->name,*/
+
+/*   'brandLabel' => '<img src="/web/img/fav_30.png" alt="На  главную страницу" title="На  главную страницу">',*/
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
         'class' => 'navbar-default navbar-fixed-top',
@@ -28,9 +31,14 @@ echo Nav::widget([
         ['label' => Yii::t('app', 'NAV_HOME'), 
 						'url' => ['/main/default/index']
 				],
+        ['label' => Yii::t('app', 'NAV_NEWS'), 
+						'url' => ['/main/default/about'],
+				],
+        ['label' => Yii::t('app', 'NAV_MAP'), 
+						'url' => ['/main/default/about'],
+				],
         ['label' => Yii::t('app', 'NAV_ABOUT'), 
 						'url' => ['/main/default/about'],
-						'options' => ['class' => 'menu_main__item']
 				],
         ['label' => Yii::t('app', 'NAV_CONTACT'), 'url' => ['/main/contact/index']],
         Yii::$app->user->isGuest ?
@@ -56,14 +64,14 @@ echo Nav::widget([
 ?>
 		<div class="header_main__logo">
 			<a class="on-main" href="/"></a>
-			<a href="#" title="На главную страницу"><img src="/web/img/logo2-1.jpg" alt="KuklaStadt - сайт о куклах" ></a>
+			<a href="#" title="На главную страницу"><img src="/web/img/logo4.png" alt="KuklaStadt - сайт о куклах" ></a>
 		</div><!-- ./header_main__logo -->
 </header><!-- ./header_main -->
 <!--<div class="container">-->
-    <?= Breadcrumbs::widget([
-        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-    ]) ?>
-    <?= Alert::widget() ?>
+    <?php// echo Breadcrumbs::widget([
+//        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+//    ]) ?>
+    <?php // echo Alert::widget() ?>
     <?= $content ?>
 <!--</div>-->
  

@@ -4,6 +4,8 @@ return [
     'NAV_HOME' => 'Главная',
     'NAV_CONTACT' => 'Контакты',
     'NAV_ABOUT' => 'О нас',
+    'NAV_NEWS' => 'Новости',
+    'NAV_MAP' => 'Карта сайта',
     'NAV_SIGNUP' => 'Регистрация',
     'NAV_LOGIN' => 'Вход',
     'ADMIN' => 'Меню администратора',

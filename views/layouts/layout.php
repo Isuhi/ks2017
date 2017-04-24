@@ -33,10 +33,10 @@ AppAsset::register($this);
 		</nav>
 		<div class="footer__block footer__copy">
 			<img src="/web/img/fav_30.png" alt="">
-			<p class="footer__copy-p">&copy; <a href="#">KuklaStadt</a> 2014-2017</p>
+			<p class="footer__copy-p">&copy; <a href="#">KuklaStadt</a> 2014-<?=date('Y')?></p>
 			<img src="/web/img/fav_30.png" alt="">
 		</div>
-	</footer> ./m-footer 
+</footer><!--	 ./m-footer -->
 
 <?php $this->endBody() ?>
 </body>

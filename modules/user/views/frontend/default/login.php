@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use app\modules\user\Module;
+use yii\widgets\Breadcrumbs;
+use app\components\widgets\Alert;
  
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
@@ -11,30 +13,7 @@ use app\modules\user\Module;
 $this->title = Module::t('module', 'TITLE_LOGIN');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<header class="header_main">
-		<h1 class="visually-hidden">KuklaStadt - сайт о куклах, об истории кукол, о жизни кукол, обо всем, что их окружает и создано для них</h1>
-		<div class="header_main__logo">
-			<a class="on-main" href="/"></a>
-			<a href="#" title="На главную страницу"><img src="img/logo2-1.jpg" alt="KuklaStadt - сайт о куклах" width="320px" higth="100px"></a>
-		</div><!-- ./header_main__logo -->
-		<nav class="menu_main menu_main-closed menu_main-nojs">
-			<button class="menu_main__toggle" type="button">Открыть меню</button>
-			<div class="menu_main__wrapper">
-				<ul class="menu_main__items">
-					<li class="menu_main__item"><a>Главная</a></li>
-					<li class="menu_main__item"><a href="">О нас</a></li>
-					<li class="menu_main__item"><a href="">Гостевая книга</a></li>
-					<li class="menu_main__item"><a href="">Карта сайта</a></li>
-					<li class="menu_main__item menu_main__item-active"><a href="">Контакты</a></li>
-					<li class="menu_main__item"><a href="">Новости</a></li>
-					<li class="menu_main__user_item"><a href="" class="menu_main__user_login">Вход  / Регистрация</a>
-					</li>
-				</ul>
-				<!-- <ul class="menu_main__user_items">
-				</ul> -->
-			</div><!-- menu_main__wrapper -->
-		</nav>
-	</header><!-- ./header_main -->
+
 	<section class="search-banner">			
 		<section class="search">				
 			<form name="search" action="#" class="search-form" method="GET">
@@ -58,6 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="m-content__wrapper">
 				<article class="m-content__text">
 <div class="user-default-login">
+	    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+    <?= Alert::widget() ?>
     <h1><?= Html::encode($this->title) ?></h1>
  
     <p><?= Module::t('module', 'PLEASE_FILL_FOR_LOGIN') ?></p>
