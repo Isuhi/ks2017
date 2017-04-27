@@ -11,7 +11,7 @@ $this->title = Module::t('module', 'CREATE_CATEGORY');
 $this->params['breadcrumbs'][] = ['label' => Module::t('module', 'ADMIN_CATEGORIES'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-echo debug(Yii::$app->request->post());
+//echo debug(Yii::$app->request->post());
 ?>
 
 <div class="categories-create">

@@ -21,14 +21,14 @@ if (isset($this->params['breadcrumbs'])) {
     $breadcrumbs = [];
 }
 ?>
-<?php $this->beginContent('@app/views/layouts/layout.php'); ?>
- 
+<?php $this->beginContent('@app/views/layouts/layout_admin.php'); ?>
+ <header class="header_admin">  
 <?php
 NavBar::begin([
     'brandLabel' => Yii::$app->name,
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
-        'class' => 'navbar-inverse navbar-fixed-top',
+        'class' => 'navbar navbar-fixed-top',
     ],
 ]);
 echo Nav::widget([
@@ -49,7 +49,12 @@ echo Nav::widget([
 ]);
 NavBar::end();
 ?>
- 
+
+</header><!-- ./header_main -->
+	<section class="m-all">
+		<section class="m-all__m-content">
+			<div class="m-content__wrapper">
+				<article class="m-content__text">
 <div class="container">
     <?= Breadcrumbs::widget([
         'links' => ArrayHelper::merge($panelBreadcrumbs, $breadcrumbs),
@@ -57,6 +62,10 @@ NavBar::end();
     <?= Alert::widget() ?>
     <?= $content ?>
 </div>
+</article><!-- ./m-content__text -->
+</div>
+</section><!-- /.m-all__m-content -->
+</section><!-- /.m-all -->
  
 <?php $this->endContent(); ?>
 

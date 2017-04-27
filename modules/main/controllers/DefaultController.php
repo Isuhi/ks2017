@@ -1,6 +1,8 @@
 <?php
 
 namespace app\modules\main\controllers;
+use app\modules\user\models\User;
+use Yii;
 
 use yii\web\Controller;
 
@@ -23,7 +25,23 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+			if ($this->findModel()){
+        return $this->render('index', [
+            'model' => $this->findModel(),
+        ]);
+			}
+			return $this->render('index');
+			
+    }
+		
+		private function findModel()
+    {
+			if(!Yii::$app->user->isGuest){
+				return User::findOne(Yii::$app->user->identity->getId());
+			}
+			return false;
+			
+        
     }
 		/**
      * Displays about page.

@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p><?= Module::t('module', 'PLEASE_FILL_FOR_LOGIN') ?></p>
  
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-9">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
             <?= $form->field($model, 'username') ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
@@ -175,7 +175,13 @@ $this->params['breadcrumbs'][] = $this->title;
 						<div class="block_reklami-left">
 							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_280x460_obrjadovaja_v2.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
 						</div>
-					</aside>	
+					</aside>
+			<aside class="m-sidebar__menu m-sidebar__menu-grow">
+				<header class="m-sidebar__header">
+					<h2 class="m-sidebar__header-h2">А здесь будет что-то оччень интересное!</h2>
+					<p>Но потом...</p>
+				</header>
+			</aside>
 			<aside class="m-sidebar__menu list-counter">
 				<div class="list-counter__wrapper">
 				<header class="m-sidebar__header">

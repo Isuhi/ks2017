@@ -509,6 +509,9 @@ height: 100px; */
   cursor: default;
   /* устанавливаем курсор в виде стрелки */
 }
+.header_admin {
+  height: 45px;
+}
 @media (max-width: 767px) {
   .header_main {
     margin: 5px;
@@ -589,7 +592,8 @@ height: 100px; */
   .header_main__logo img {
     display: none;
   }
-  .navbar-default .navbar-nav > li > a {
+  .navbar-default .navbar-nav > li > a,
+  .dropdown-toggle {
     background-color: #F4EABC;
     color: #6c190f;
     border-bottom: 1px solid #d5cb9d;
@@ -602,10 +606,16 @@ height: 100px; */
     text-transform: none;
   }
   .navbar-default .navbar-nav > li > a:hover,
+  .dropdown-toggle:hover,
   .navbar-default .navbar-nav > li > a:focus,
-  .navbar-default .navbar-nav > li > a:active {
+  .dropdown-toggle:focus,
+  .navbar-default .navbar-nav > li > a:active,
+  .dropdown-toggle:active {
     color: #000;
     background-color: #E0D6A8;
+  }
+  .dropdown > .dropdown-toggle {
+    padding: 5px;
   }
   .navbar-default .navbar-nav > .active > a {
     color: #000;
@@ -1863,4 +1873,20 @@ margin: 10px 0; */
   box-shadow: 3px 3px 3px #292626;
   margin: 10px 10px 0;
   padding: 10px 10px 0;
+}
+.user-profile .btn-primary {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #666;
+  background-color: #f4eabc;
+  border-color: #6c190f;
+  color: #6c190f;
+  text-decoration: none;
+}
+.user-profile .btn-primary:hover {
+  background-color: #E0D6A8;
+  border-color: #6c190f;
+  color: #000;
+}
+.user-profile > p {
+  text-indent: 0;
 }

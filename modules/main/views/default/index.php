@@ -1,33 +1,14 @@
 <?php
 
 /* @var $this yii\web\View */
+use app\components\widgets\Alert;
+use app\modules\user\Module;
+use app\components\MenuCategoriesWidget;
 
 $this->title = Yii::$app->name;
+
 ?>
-<!--<header class="header_main">
-		<h1 class="visually-hidden">KuklaStadt - сайт о куклах, об истории кукол, о жизни кукол, обо всем, что их окружает и создано для них</h1>
-		<div class="header_main__logo">
-			<a class="on-main" href="/"></a>
-			<a href="#" title="На главную страницу"><img src="img/logo2-1.jpg" alt="KuklaStadt - сайт о куклах" width="320px" higth="100px"></a>
-		</div> ./header_main__logo -->
-<!--		<nav class="menu_main menu_main-closed menu_main-nojs">
-			<button class="menu_main__toggle" type="button">Открыть меню</button>
-			<div class="menu_main__wrapper">
-				<ul class="menu_main__items">
-					<li class="menu_main__item"><a>Главная</a></li>
-					<li class="menu_main__item"><a href="">О нас</a></li>
-					<li class="menu_main__item"><a href="">Гостевая книга</a></li>
-					<li class="menu_main__item"><a href="">Карта сайта</a></li>
-					<li class="menu_main__item menu_main__item-active"><a href="">Контакты</a></li>
-					<li class="menu_main__item"><a href="">Новости</a></li>
-					<li class="menu_main__user_item"><a href="" class="menu_main__user_login">Вход  / Регистрация</a>
-					</li>
-				</ul>
-				 <ul class="menu_main__user_items">
-				</ul> 
-			</div> menu_main__wrapper 
-		</nav>-->
-<!--	</header> ./header_main -->
+
 	<section class="search-banner">			
 		<section class="search">				
 			<form name="search" action="#" class="search-form" method="GET">
@@ -50,15 +31,22 @@ $this->title = Yii::$app->name;
 		<section class="m-all__m-content">
 			<div class="m-content__wrapper">
 				<article class="m-content__text">
+    <?= Alert::widget() ?>
+<?php //debug($model); ?>
 					<header class="text-header">
-						<h2 class="text-header__h2-welcome">Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h2>
+						<h2 class="text-header__h2-welcome">
+							<?php if(!Yii::$app->user->isGuest) :?>
+							Здравствуйте, <?= $model->username ?>!
+							<?php else:?>
+							Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h2>
+						<?php endif;?>
 		        <h1 class="text-header__h1">KuklaStadt  - сайт о куклах, про кукол и о том, что есть для кукол</h1>
 					</header><!-- ./text-header -->
 					<p>Мы приветствуем вас на главной странице нашего проекта, который целиком и полностью посвящен куклам и всему, что с ними связано. На страницах сайта будет размещаться много интересной информации о куклах, их появлении и их жизни. Мы постараемся рассказать о куклах все - от технологий изготовления и разнообразия кукол до особенностей их характера и капризов.</p>
 		      <p>Все материалы сайта разделены по двум главным критериям - из чего сделана кукла и для чего она появилась на свет. Поэтому слева вы видите два меню, пункты которых говорят сами за себя. Единственное уточнение - статьи на сайте могут быть информационными и практическими, наподобие мастер-классов. В пунктах меню, думаю, разберетесь сами.</p>
 		      <p>Получить основную информацию о нашем проекте вы можете, посетив странички, ссылки на которые находятся в верхнем меню в шапке сайта. И еще. Хочу вас познакомить с самым первым жителем нашего города - маленькой девочкой Веселиной:</p>
 		      <figure class="m-content__figure">
-		        <img src="img/Veselina.png" alt="Веселина - главный экскурсовод города KuklaStadt" title="Веселина - главный экскурсовод города KuklaStadt">
+		        <img src="/web/img/Veselina.png" alt="Веселина - главный экскурсовод города KuklaStadt" title="Веселина - главный экскурсовод города KuklaStadt">
 		        <figcaption class="m-content__figcaption"> «Всем привет! Мне тут надо сбегать кое-куда, так что вы пока погуляйте по нашим страничкам, а я потом прибегу и все-все вам расскажу» </figcaption>
 		      </figure>
 		      <p>Она получилась уж очень любопытной и общительной куклой. К тому же, как любой нормальный маленький ребенок, Веселина так и норовит куда-нибудь залезть и кого-нибудь там найти.</p>
@@ -169,6 +157,15 @@ $this->title = Yii::$app->name;
 				  	</div>
 					</div>
 				</article><!-- ./m-content__carousel -->
+									<div class="article-end">
+						<p>. . . . .</p>
+						<p>На этом все</p>
+						<p>До следующих встреч на страницах сайта KuklaStadt!</p>
+					</div><!-- /.article-end -->
+		<aside class="social-seti">
+			<p>Вы можете поделиться своим мнением об этой странице со всеми друзьями и знакомыми в социальных сетях:</p>
+			<div class="ya-share2 social-buttons" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,twitter,lj"></div>
+		</aside>
 			</div>
 				<section class="m-all__m-sidebar m-sidebar m-sidebar__rightbar">
 					<aside class="m-sidebar__reklama">
@@ -189,29 +186,9 @@ $this->title = Yii::$app->name;
 				<header class="m-sidebar__header">
 					<h2 class="m-sidebar__header-h2">Про кукол, для кукол</h2>
 				</header>
-        <ul class="menu-sidebar__items">
-          <li class="menu-sidebar__item menu-sidebar__item_active"><a Href="/catalog.html">Декоративная кукла</a>
-            <ul class="menu-sidebar__items">
-            <li class="menu-sidebar__item"><a href="#">Интерьерная кукла</a></li>
-            <li class="menu-sidebar__item"><a href="#">Ландшафтная кукла</a></li>
-           </ul>
-          </li>
-          <li class="menu-sidebar__item"><a href="#">Тряпичная кукла</a>
-            <ul class="menu-sidebar__items">
-              <li class="menu-sidebar__item"><a href="#">Кукла оберег</a></li>
-              <li class="menu-sidebar__item"><a href="#">Обрядовая кукла</a></li>
-              <li class="menu-sidebar__item"><a href="#">Игровая кукла</a></li>
-            </ul>
-          </li>
-          <li class="menu-sidebar__item"><a Href="#">Театральная кукла</a>
-            <ul class="menu-sidebar__items">
-              <li class="menu-sidebar__item"><a href="#">Марионетки</a></li>
-            </ul>
-          </li>
-          <li class="menu-sidebar__item"><a Href="#">Куклы к праздникам, особенным мероприятиям</a></li>
-          <li class="menu-sidebar__item"><a Href="#">Для кукол</a></li>
-          <li class="menu-sidebar__item"><a Href="#">О куклах</a></li>
-        </ul>
+<ul class="menu-sidebar__items">
+<?= MenuCategoriesWidget::widget(); ?>
+	</ul>
 			</nav><!-- ./m-sidebar__menu-category -->
 			<nav class="m-sidebar__menu menu-materials">
 				<header class="m-sidebar__header">
@@ -276,7 +253,13 @@ $this->title = Yii::$app->name;
 						<div class="block_reklami-left">
 							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_280x460_obrjadovaja_v2.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
 						</div>
-					</aside>	
+					</aside>
+			<aside class="m-sidebar__menu m-sidebar__menu-grow">
+				<header class="m-sidebar__header">
+					<h2 class="m-sidebar__header-h2">А здесь будет что-то оччень интересное!</h2>
+					<p>Но потом...</p>
+				</header>
+			</aside>
 			<aside class="m-sidebar__menu list-counter">
 				<div class="list-counter__wrapper">
 				<header class="m-sidebar__header">
