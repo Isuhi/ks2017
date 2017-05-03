@@ -48,7 +48,7 @@ class Staticpages extends \yii\db\ActiveRecord
             'id' => Module::t('module', 'ID'),
             'title' => Module::t('module', 'TITLE'),
             'alias' => Module::t('module', 'ALIAS'),
-							'keywords' => Module::t('module', 'KEYWORDS'),
+						'keywords' => Module::t('module', 'KEYWORDS'),
             'description' => Module::t('module', 'DESCRIPTION'),
             'text' => Module::t('module', 'TEXT'),
             'visible' => Module::t('module', 'VISIBLE'),
@@ -64,4 +64,19 @@ class Staticpages extends \yii\db\ActiveRecord
     {
         return new \app\modules\main\models\backend\guery\StaticpagesQuery(get_called_class());
     }
+		
+//		public static function topMenu() {
+//			$item =[];
+//			$staticPages = Staticpages::find()->select(['id', 'title', 'alias'])->where(['visible' => '1'])->orderBy('position')->all();
+//			foreach ($staticPages as $staticPage) {
+//				$item[] = [
+//					'label' => $staticPage->title,
+//					'url' => ['/site', 'link' => $staticPage->alias]
+//				];				
+//			}
+//			return $item;
+//		}
+		
+
+	
 }

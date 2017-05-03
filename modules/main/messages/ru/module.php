@@ -1,7 +1,10 @@
 <?php
 return [
-    'TITLE_CONTACT' => 'Обратная связь',
+    'TITLE_CONTACT' => 'Контакты',
     'TITLE_ABOUT' => 'О нас',
+    'TITLE_MAP' => 'Карта сайта',
+    'TITLE_NEWS' => 'Новости',
+	
     'BUTTON_SEND' => 'Отправить',
     'CONTACT_NAME' => 'Ваше имя',
     'CONTACT_EMAIL' => 'Ваш Email',
@@ -61,5 +64,7 @@ return [
 	
     'NEWS' => 'Новости',
     'NEWS_CREATE' => 'Создать новость',
+	
+    'TITLE_ERROR' => 'Ошибка',
 	
 ];

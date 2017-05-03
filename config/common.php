@@ -61,6 +61,7 @@ return [
 
 		'' => 'main/default/index',
 		'contact' => 'main/contact/index',
+		'<_a:(about|map|news)>' => 'main/default/<_a>',
 		'<_a:error>' => 'main/default/<_a>',
 
 		'<_a:(login|logout|signup|email-confirm|password-reset-request|password-reset)>' => 'user/default/<_a>',

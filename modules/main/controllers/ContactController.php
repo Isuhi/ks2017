@@ -5,9 +5,17 @@ namespace app\modules\main\controllers;
 use app\modules\main\models\form\ContactForm;
 use yii\web\Controller;
 use Yii;
+use app\components\BehaviorsStaticPages;
  
 class ContactController extends Controller
 {
+	
+		public function behaviors() {
+			return [
+				BehaviorsStaticPages::className(),
+			];			
+		}
+		
     public function actions()
     {
         return [
@@ -20,6 +28,7 @@ class ContactController extends Controller
  
     public function actionIndex()
     {
+			$contact = $this->getStaticPages('contacts');
         $model = new ContactForm();
 				if ($user = Yii::$app->user->identity) {
             /** @var \app\modules\user\models\User $user */
@@ -31,9 +40,7 @@ class ContactController extends Controller
  
             return $this->refresh();
         } else {
-            return $this->render('index', [
-                'model' => $model,
-            ]);
+            return $this->render('index',compact('model', 'contact'));
         }
     }
 }

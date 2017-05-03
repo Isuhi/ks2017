@@ -1,10 +1,11 @@
 <?php
 namespace app\components;
-use yii\base\Widget;
-use app\modules\main\models\backend\Categories;
 
-class MenuCategoriesWidget extends Widget{
-	
+use yii\base\Widget;
+use app\modules\main\models\backend\Types;
+
+class MenuTypesWidget extends Widget{
+
 	public $data;
 	public $tree;
 	public $menuHtml;
@@ -14,7 +15,7 @@ class MenuCategoriesWidget extends Widget{
 	}
 	
 	public function run() {
-		$this->data = Categories::find()->where(['visible' => '1'])->indexBy('id')->asArray()->all();
+		$this->data = Types::find()->where(['visible' => '1'])->indexBy('id')->asArray()->all();
 		$this->data = $this->getTree();
 		$this->data = $this->getMenuHtml($this->data);
 		return $this->data;
@@ -35,15 +36,15 @@ class MenuCategoriesWidget extends Widget{
 	
 	protected function getMenuHtml($tree) {
 		$str = '';
-		foreach ($tree as $categories) {
-			$str .= $this->catToTemplate($categories);
+		foreach ($tree as $types) {
+			$str .= $this->catToTemplate($types);
 		}
 		return $str;
 	}
 	
-	protected function catToTemplate($categories) {
+	protected function catToTemplate($types) {
 		ob_start();
-		include __DIR__ . '/views/menuCategories.php' ;
+		include __DIR__ . '/views/menuTypes.php' ;
 		return ob_get_clean();
 	}
 	

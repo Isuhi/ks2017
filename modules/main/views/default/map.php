@@ -1,28 +1,24 @@
 <?php
-
-/* @var $this yii\web\View */
-
 use yii\helpers\Html;
-//use app\modules\main\Module;
 use app\components\widgets\Alert;
-use app\modules\user\Module;
+use app\modules\main\Module;
 use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
 
-
-$this->title = Module::t('module', 'TITLE_ABOUT');
+$this->title = Module::t('module', 'TITLE_MAP');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-		<aside class="search-banner__banner">
-			<div class="search-banner__banner-wrap"> 
-				<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_narodnaja_v3.jpg" width="500" height="50" border="0" alt="dif" /></a>
-			</div>
-		</aside><!-- ./search-banner__banner -->
-		<aside class="search-banner__banner">
-			<div class="search-banner__banner-wrap"> 
-				<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_valjanaja_v2.jpg" width="500" height="50" border="0" alt="ssd" /></a>
-			</div>
-		</aside><!-- ./search-banner__banner -->
-	</section>
+	<aside class="search-banner__banner">
+		<div class="search-banner__banner-wrap"> 
+			<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_narodnaja_v3.jpg" width="500" height="50" border="0" alt="dif" /></a>
+		</div>
+	</aside><!-- ./search-banner__banner -->
+	<aside class="search-banner__banner">
+		<div class="search-banner__banner-wrap"> 
+			<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_valjanaja_v2.jpg" width="500" height="50" border="0" alt="ssd" /></a>
+		</div>
+	</aside><!-- ./search-banner__banner -->
+</section>
 	<section class="m-all">
 		<section class="m-all__m-content">
 			<div class="m-content__wrapper">
@@ -39,13 +35,23 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?php endif;?>
 					</header><!-- ./text-header -->
 					<header class="text-header">
-						<h1 class="text-header__h1"><?= $about -> title ?></h1>
+						<h1 class="text-header__h1"><?= $map-> title ?></h1>
 					</header><!-- ./text-header -->
 				<article class="article-text">
-<!--<div class="main-default-about">-->
-		<?= $about->text ?>
-
-<!--</div>-->
+		<?= $map->text ?>
+		<nav class="nav-map">
+			<header class="m-sidebar__header">
+				<h2 class="m-sidebar__header-h2">Каталог статей</h2>
+				<p>Всего статей - <?=$countArticles?></p>
+			</header>
+			<ul class="nav-map__items">
+		<?php foreach($listArticles as $item):?>
+				<li class="nav-map__item">
+					<a href="<?= Url::to(['articles/view', 'alias' => $item->alias]) ?>"><?=$item->title ?></a>
+				</li>
+		<?php endforeach;?>
+			</ul>			
+		</nav>
 		<div class="article-end">
 			<p>. . . . .</p>
 		</div><!-- /.article-end -->

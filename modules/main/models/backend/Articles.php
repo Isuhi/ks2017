@@ -78,7 +78,7 @@ class Articles extends \yii\db\ActiveRecord
             'text' => Module::t('module', 'TEXT'),
             'author' => Module::t('module', 'AUTHOR'),
             'created_at' => Module::t('module', 'CREATED_AT'),
-            'updated_at' => Module::t('module', 'UPDATE_AP'),
+            'updated_at' => Module::t('module', 'UPDATED_AT'),
             'img' => Module::t('module', 'IMG_ARTICLE'),
             'view' => Module::t('module', 'COUNT_VIEW'),
             'visible' => Module::t('module', 'VISIBLE'),
