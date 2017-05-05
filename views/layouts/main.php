@@ -49,7 +49,7 @@ echo Nav::widget([
 						'url' => ['/main/default/about'],
 				],
         ['label' => Yii::t('app', 'NAV_GUEST'), 
-						'url' => ['/main/default/guest'],
+						'url' => ['/main/default/guestbook'],
 				],
         ['label' => Yii::t('app', 'NAV_CONTACT'), 
 						'url' => ['/main/contact/index']

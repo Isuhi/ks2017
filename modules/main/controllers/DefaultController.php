@@ -9,6 +9,7 @@ use app\components\BehaviorsGetDataUser;
 use yii\web\Controller;
 use app\modules\main\models\backend\Articles;
 use app\modules\main\models\backend\News;
+use app\modules\main\models\backend\Guestbook;
 use yii\data\Pagination;
 
 class DefaultController extends Controller
@@ -56,18 +57,32 @@ class DefaultController extends Controller
 			return $this->render('map', compact('map', 'model', 'listArticles', 'countArticles'));
 		}
 		
-			public function actionNews() {	
-				$news = $this->getStaticPages('news');
-				$model = $this->findModel();
-				$query = News::find()->where(['visible' => '1'])->orderBy('id DESC');
-				$pages = new Pagination([
-															'totalCount' => $query->count(), 
-															'pageSize' => 10, 
-															'forcePageParam' => false, 
-															'pageSizeParam' => false
-					]);
-				$allNews = $query->offset($pages->offset)->limit($pages->limit)->all();
-				return $this->render('news', compact('model', 'news', 'allNews', 'pages'));
-			}
+		public function actionNews() {	
+			$news = $this->getStaticPages('news');
+			$model = $this->findModel();
+			$query = News::find()->where(['visible' => '1'])->orderBy('id DESC');
+			$pages = new Pagination([
+														'totalCount' => $query->count(), 
+														'pageSize' => 10, 
+														'forcePageParam' => false, 
+														'pageSizeParam' => false
+				]);
+			$allNews = $query->offset($pages->offset)->limit($pages->limit)->all();
+			return $this->render('news', compact('model', 'news', 'allNews', 'pages'));
+		}
+		
+		public function actionGuestbook() {
+			$guestbook = $this->getStaticPages('guestbook');
+			$model = $this->findModel();
+			$query = Guestbook::find()->where(['visible' => '1'])->orderBy('id DESC');
+			$pages = new Pagination([
+														'totalCount' => $query->count(), 
+														'pageSize' => 10, 
+														'forcePageParam' => false, 
+														'pageSizeParam' => false
+				]);
+			$allReviews = $query->offset($pages->offset)->limit($pages->limit)->all();
+			return $this->render('guestbook', compact('model', 'guestbook', 'pages', 'allReviews'));
+		}
 	
 }

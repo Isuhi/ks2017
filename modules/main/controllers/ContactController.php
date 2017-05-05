@@ -28,7 +28,7 @@ class ContactController extends Controller
  
     public function actionIndex()
     {
-			$contact = $this->getStaticPages('contacts');
+				$contact = $this->getStaticPages('contacts');
         $model = new ContactForm();
 				if ($user = Yii::$app->user->identity) {
             /** @var \app\modules\user\models\User $user */

@@ -4,6 +4,7 @@ return [
     'TITLE_ABOUT' => 'О нас',
     'TITLE_MAP' => 'Карта сайта',
     'TITLE_NEWS' => 'Новости',
+    'TITLE_GUESTBOOK' => 'Гостевая книга',
 	
     'BUTTON_SEND' => 'Отправить',
     'CONTACT_NAME' => 'Ваше имя',
@@ -57,6 +58,12 @@ return [
     'VISIBLE' => 'Видимость',
     'COMMENT' => 'Комментарии',
     'MASTER_CLASS' => 'Мастер-класс',
+	
+    'NAME' => 'Имя',
+    'EMAIL' => 'Эл. почта',
+    'URL' => 'Сайт',
+    'GUESTBOOK' => 'Гостевая книга',
+    'CREATE_ENTRY' => 'Создать запись',
 	
     'STATICPAGES' => 'Статические страницы',
     'STATICPAGES_CREATE' => 'Создать новую страницу',

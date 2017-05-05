@@ -19,6 +19,7 @@ return [
     'NAV_ADMIN_ARTICLES' => 'Статьи',
     'NAV_ADMIN_STATICPAGES' => 'Статические страницы',
     'NAV_ADMIN_NEWS' => 'Новости',
+    'NAV_ADMIN_GUESTBOOK' => 'Гостевая книга',
  
 ];
 
