@@ -39,7 +39,7 @@ class SignupForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'match', 'pattern' => '/^[a-zа-яё0-9_\-\s]+$/uis'],
-            ['username', 'unique', 'targetClass' => User::className(), 'message' => Module::t('module', Module::t('module', 'ERROR_USERNAME_EXISTS'))],
+            ['username', 'unique', 'targetClass' => User::className(), 'message' =>  Module::t('module', 'ERROR_USERNAME_EXISTS')],
             ['username', 'string', 'min' => 2, 'max' => 255],
  
             ['email', 'filter', 'filter' => 'trim'],

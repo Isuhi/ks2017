@@ -19,7 +19,7 @@ class GuestbookSearch extends Guestbook
     {
         return [
             [['id', 'created_at', 'visible'], 'integer'],
-            [['name', 'email', 'url', 'text'], 'safe'],
+            [['username', 'email', 'url', 'text'], 'safe'],
         ];
     }
 
@@ -65,7 +65,7 @@ class GuestbookSearch extends Guestbook
             'visible' => $this->visible,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'url', $this->url])
             ->andFilterWhere(['like', 'text', $this->text]);

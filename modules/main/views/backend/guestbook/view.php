@@ -7,7 +7,7 @@ use app\modules\main\Module;
 /* @var $this yii\web\View */
 /* @var $model app\modules\main\models\backend\Guestbook */
 
-$this->title = $model->name;
+$this->title = $model->username;
 $this->params['breadcrumbs'][] = ['label' => Module::t('module', 'GUESTBOOK'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,14 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
+            'username',
             'email:email',
             'url:url',
             [
 							'attribute' => 'created_at',
 							'format' => ['date', 'php:d.m.Y'],
 						 ],
-            'text:raw',
+            'text',
             'visible:boolean',
         ],
     ]) ?>

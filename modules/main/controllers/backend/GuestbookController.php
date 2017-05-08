@@ -64,6 +64,7 @@ class GuestbookController extends Controller
     public function actionCreate()
     {
         $model = new Guestbook();
+				
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

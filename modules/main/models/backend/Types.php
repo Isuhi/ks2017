@@ -77,7 +77,7 @@ class Types extends \yii\db\ActiveRecord
         return $this->hasMany(Types::className(), ['parent_id' => 'id']);
     }
 		
-		    public function getArticles()
+		public function getArticles()
     {
         return $this->hasMany(Articles::className(), ['types_id' => 'id']);
     }

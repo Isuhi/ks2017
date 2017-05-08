@@ -4,6 +4,8 @@ use app\components\widgets\Alert;
 use app\modules\main\Module;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+use yii\captcha\Captcha;
 
 $this->title = Module::t('module', 'TITLE_GUESTBOOK');
 $this->params['breadcrumbs'][] = $this->title;
@@ -35,24 +37,41 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?php endif;?>
 					</header><!-- ./text-header -->
 					<header class="text-header">
-						<h1 class="text-header__h1"><?= $map-> title ?></h1>
+						<h1 class="text-header__h1"><?= $guestbook-> title ?></h1>
 					</header><!-- ./text-header -->
 				<article class="article-text">
 		<?= $guestbook->text ?>
+					<aside class="guestbook-form">
+						<?php $form = ActiveForm::begin(); ?>
+							<?= $form->field($data,  'username') ?>
+							<?= $form->field($data,  'email') ?>
+							<?= $form->field($data,  'url') ?>
+							<?= $form->field($data,  'text')->textarea(['rows' => 6])?>
+						<?php  echo $form->field($data, 'verifyCode')->widget(Captcha::className(), [
+                'captchaAction' => '/main/default/captcha',
+               'template' => '<div class="row"><div class="col-lg-6">{image}</div><div class="col-lg-6">{input}</div></div>',
+            ]) ?>
+						<div class="form-group">
+							<?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
+						</div>
+						<?php ActiveForm::end(); ?>
+					</aside>
 				<aside class="guestbook-comment">
 				<header class="text-header">
 					<h3 class="text-header__h3">Все сообщения:</h3>
 					<p>(всего сообщений - <?= $pages->totalCount ?>)</p>
 				</header><!-- ./text-header -->
 					<ul class="guestbook-comment__items">
-				<?php foreach ($allReviews as $review): ?>	
+				<?php foreach ($allReviews as $review): ?>
+						<?php // debug($allReviews);					 exit() ?>
 						<li class="guestbook-comment__item">
 							<div class="guestbook-comment__data">
-								<p class="guestbook-comment__login"><?= $review->name ?></p>
+								<p class="guestbook-comment__login"><?= $review->username ?></p>
+
 								<p class="guestbook-comment__date"><?= Yii::$app->formatter->asDate($review->created_at, 'dd-MM-yyyy');?> г.</p>
 							</div>
 							<div class="guestbook-comment__text">
-								<p><?= $review->text ?></p>
+								<p><?= strip_tags($review->text) ?></p>
 							</div>
 						</li>
 				<?php endforeach;?>

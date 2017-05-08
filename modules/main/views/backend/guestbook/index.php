@@ -26,14 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+            'username',
             'email:email',
             'url:url',
             [
 							'attribute' => 'created_at',
 							'format' => ['date', 'php:d.m.Y'],
 						 ],
-            'text:ntext',
+            'text',
             [
 							'attribute' => 'visible',
 							'filter' => [0 => 'Нет', 1 => 'Да'],

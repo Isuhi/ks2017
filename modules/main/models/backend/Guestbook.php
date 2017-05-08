@@ -7,11 +7,12 @@ use app\modules\main\Module;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
+
 /**
  * This is the model class for table "{{%guestbook}}".
  *
  * @property integer $id
- * @property string $name
+ * @property string $username
  * @property string $email
  * @property string $url
  * @property integer $created_at
@@ -44,10 +45,10 @@ class Guestbook extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'text'], 'required'],
+            [['username', 'email', 'text'], 'required'],
             [['created_at', 'visible'], 'integer'],
             [['text'], 'string'],
-            [['name', 'email', 'url'], 'string', 'max' => 255],
+            [['username', 'email', 'url'], 'string', 'max' => 255],
         ];
     }
 
@@ -56,7 +57,7 @@ class Guestbook extends ActiveRecord
     {
         return [
             'id' => Module::t('module', 'ID'),
-            'name' => Module::t('module', 'NAME'),
+            'username' => Module::t('module', 'NAME'),
             'email' => Module::t('module', 'EMAIL'),
             'url' => Module::t('module', 'URL'),
             'created_at' => Module::t('module', 'CREATED_AT'),
@@ -64,4 +65,7 @@ class Guestbook extends ActiveRecord
             'visible' => Module::t('module', 'VISIBLE'),
         ];
     }
+		
+
+    
 }

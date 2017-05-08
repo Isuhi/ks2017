@@ -6,9 +6,9 @@ use app\modules\main\Module;
 /* @var $this yii\web\View */
 /* @var $model app\modules\main\models\backend\Guestbook */
 
-$this->title = Module::t('module', 'UPDATE') . ': ' . $model->name;
+$this->title = Module::t('module', 'UPDATE') . ': ' . $model->username;
 $this->params['breadcrumbs'][] = ['label' => Module::t('module', 'GUESTBOOK'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->username, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Module::t('module', 'UPDATE');
 ?>
 <div class="guestbook-update">
