@@ -35,11 +35,11 @@ class GuestbookForm extends Model
 					
             ['text', 'required'],
             ['text', 'filter', 'filter' => 'trim'],
-						['text', 'string', 'max' => 1000],
+						['text', 'string', 'max' => 999],
 					
-            [['url'], 'url'],
-            [['url'], 'filter', 'filter' => 'trim'],
-            [['url'], 'string', 'max' => 255],
+            ['url', 'url'],
+            ['url', 'filter', 'filter' => 'trim'],
+            ['url', 'string', 'max' => 255],
 				
            ['verifyCode', 'captcha', 'captchaAction' => '/main/default/captcha'],
         ];

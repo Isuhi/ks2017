@@ -6,6 +6,7 @@ use app\modules\main\models\form\ContactForm;
 use yii\web\Controller;
 use Yii;
 use app\components\BehaviorsStaticPages;
+use app\components\BehaviorsMetaTags;
  
 class ContactController extends Controller
 {
@@ -13,6 +14,7 @@ class ContactController extends Controller
 		public function behaviors() {
 			return [
 				BehaviorsStaticPages::className(),
+				BehaviorsMetaTags::className(),
 			];			
 		}
 		
@@ -29,6 +31,7 @@ class ContactController extends Controller
     public function actionIndex()
     {
 				$contact = $this->getStaticPages('contacts');
+				$this->setMeta($contact->title, $contact->keywords, $contact->description);
         $model = new ContactForm();
 				if ($user = Yii::$app->user->identity) {
             /** @var \app\modules\user\models\User $user */

@@ -60,6 +60,14 @@ return [
 	],
 
 		'news/<alias:[\w-]+>' => 'main/news/view',
+	
+		'search/<search:[\w-]+>' => 'main/catalog/search',
+	
+		'<_a>/<alias:[\w-]+>/page<page:\d+>' => 'main/catalog/<_a>',
+		'<_a>/<alias:[\w-]+>' => 'main/catalog/<_a>',
+		'<_a>/page/<page:\d+>' => 'main/catalog/<_a>',
+		'<_a>' => 'main/catalog/<_a>',
+	
 		'' => 'main/default/index',
 		'contact' => 'main/contact/index',
 		'<_a:(about|map|news|guestbook)>' => 'main/default/<_a>',

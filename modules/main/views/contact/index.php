@@ -12,7 +12,7 @@ use yii\widgets\Breadcrumbs;
 use app\components\widgets\Alert;
 use app\modules\main\models\backend\Staticpages;
 
-$this->title = Module::t('module', 'TITLE_CONTACT');
+//$this->title = Module::t('module', 'TITLE_CONTACT');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 	<aside class="search-banner__banner">
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					<div class="row">
 						<div class="col-lg-9">
 							<?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-								<?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+								<?= $form->field($model, 'name')->textInput() ?>
 								<?= $form->field($model, 'email') ?>
 								<?= $form->field($model, 'subject') ?>
 								<?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>

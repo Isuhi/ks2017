@@ -7,7 +7,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = Module::t('module', 'TITLE_GUESTBOOK');
+//$this->title = Module::t('module', 'TITLE_GUESTBOOK');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 	<aside class="search-banner__banner">
@@ -43,11 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
 		<?= $guestbook->text ?>
 					<aside class="guestbook-form">
 						<?php $form = ActiveForm::begin(); ?>
-							<?= $form->field($data,  'username') ?>
-							<?= $form->field($data,  'email') ?>
-							<?= $form->field($data,  'url') ?>
-							<?= $form->field($data,  'text')->textarea(['rows' => 6])?>
-						<?php  echo $form->field($data, 'verifyCode')->widget(Captcha::className(), [
+							<?= $form->field($data,  'username')->hint('Это обязательное поле. Для удобства общения с вами используйте привычные для людей имена, хотя... бывает всякое, поэтому лучше всего назовитесь своим настоящим именем )).') ?>
+							<?= $form->field($data,  'email')->hint('Это обязательное поле. Эти данные не публикуются. Пожалуйста, вводите существующий адрес в формате: mail@mail.mail')->input('email') ?>
+							<?= $form->field($data,  'url')->hint('Это необязательное поле. Эти данные не публикуются. Пожалуйста, вводите существующий адрес в формате: http(s)://site.site') ?>
+							<?= $form->field($data,  'text')->textarea(['rows' => 6])->hint('Это обязательное поле. Пожалуйста, не публикуйте ссылки на другие ресурсы или программный код.')?>
+						<?php  echo $form->field($data, 'verifyCode')->hint('Это обязательное поле. Если символы вам непонятны, то кликните по ним левой клавишей мышки - они изменятся.')->widget(Captcha::className(), [
                 'captchaAction' => '/main/default/captcha',
                'template' => '<div class="row"><div class="col-lg-6">{image}</div><div class="col-lg-6">{input}</div></div>',
             ]) ?>

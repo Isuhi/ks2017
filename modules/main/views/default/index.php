@@ -3,9 +3,12 @@
 /* @var $this yii\web\View */
 use app\components\widgets\Alert;
 use app\modules\user\Module;
+use yii\helpers\Url;
+use yii\helpers\Html;
+use app\components\SliderRundWidget;
 
 
-$this->title = Yii::$app->name;
+//$this->title = Yii::$app->name;
 
 ?>
 
@@ -58,101 +61,36 @@ $this->title = Yii::$app->name;
 						<a href="https://mchost.ru/?referer=4180319423" target=_blank><img src="//ban.mchost.ru/b/728x90.jpg" width="728" height="90" border="0" alt="Хостинг от Макхост" /></a>
 					</div>
 				</aside><!-- ./m-content__banner m-content__banner-middle -->
+<?php // debug($newArticle)?>
+			<?php if(!empty($newArticle)):?>
+				<?php // foreach($newArticle as $dataArticle): ?>
 				<article class="m-content__new-article">
 	        <header class="new-article__header">
 		        	<h2 class="new-article__header_h2">Новая статья на сайте</h2>
-		          <h3 class="new-article__header_h3"><a href="/article.html">Кукла Мишка, кукла Машка</a></h3>
+		          <h3 class="new-article__header_h3"><a href="<?= Url::to(['articles/view', 'alias' => $newArticle->alias]) ?>"><?= $newArticle->title ?></a></h3>
 	        </header>
 	        <figure class="new-article__img">
-	         <a href="/article.html"><img src="articles/images/mischka_maschka_34.jpg" alt="Кукла Мишка, кукла Машка"></a>
+	         <a href="<?= Url::to(['articles/view', 'alias' => $newArticle->alias]) ?>">
+							<?= Html::img("/web/files/global/maxi/{$newArticle->img}", ['alt' => $newArticle->title, 'title' => $newArticle->title]) ?>
+						</a>
 	        </figure>
-	        <p class="new-article__p">Кукла Мишка, кукла Машка - это интерьерные куклы Анжелины Дегтяревой из ее новой коллекции под названием «Мультиваляшки».Кукла Мишка, кукла Машка - это интерьерные куклы Анжелины Дегтяревой из ее новой коллекции под названием «Мультиваляшки».Кукла Мишка, кукла Машка - это интерьерные куклы Анжелины Дегтяревой из ее новой коллекции под названием «Мультиваляшки».Кукла Мишка, кукла Машка - это интерьерные куклы Анжелины Дегтяревой из ее новой коллекции под названием «Мультиваляшки».</p>
+	        <p class="new-article__p"><?= $newArticle->anons ?></p>
 	        <aside class="new-article__details">
-	        	<p class="new-article__date">Дата: 28.08.2016</p>
+	        	<p class="new-article__date">Дата: <?= Yii::$app->formatter->asDate($newArticle->created_at, 'dd.MM.yyyy');?> г.</p>
 	          <p class="new-article__link-more">
-	            <a href="/article.html">Читать статью</a>
+	            <a href="<?= Url::to(['articles/view', 'alias' => $newArticle->alias]) ?>">Читать статью</a>
 	          </p>
 	        </aside>	
 				</article><!-- ./m-content__new-article -->
+				<?php // endforeach; ?>
+			<?php endif;?>
 				<aside class="m-content__banner m-content__banner-middle">
 					<div class="banner_c_c banner_728x90"> 
 						<a href="https://mchost.ru/?referer=4180319423" target=_blank><img src="//ban.mchost.ru/b/728x90.jpg" width="728" height="90" border="0" alt="Хостинг от Макхост" /></a>
 					</div>
 				</aside><!-- ./m-content__banner m-content__banner-middle -->
-				<article class="m-content__carousel">
-					<header class="carousel__header">
-						<h2 class="carousel__header_h2">
-							Несколько случайных статей, опубликованых на сайте:
-						</h2>
-					</header>
-					<div class="fotorama" 
-							data-width="100%"
-							data-maxwidth="500px"			
-							data-stopautoplayontouch="false"
-							data-nav="thumbs">
-					  <div data-img="/articles/images/kukla_obereg/bessonnica.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/77">Кукла Бессонница</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/den-noch.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла День-Ночь</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/den-noch2.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла День-Ночь (2)</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/filippovka.jpg">
-					 	 <a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Филипповка</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/kapustka.jpg">
-					 	 <a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Капустка</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/koljada.jpg">
-					  <a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Коляда</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/kolokolchik.jpg">
-					 	 <a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Колокольчик</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/kormilka.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Кормилка</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/kosma_demian.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Козьма и Демьян</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/krupenichka.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Крупеничка</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/kubishka-travnica.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Кубышка-Травница</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/kukla_dolja2.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Доля</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/lihomanki.jpg">
-					 	 <a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Лихоманки</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/maslenica.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Масленница</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/metlushka.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Метлушка</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/mirovoe_derevo.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Мировое Дерево</a>
-					  </div>
-					  <div data-img="/articles/images/kukla_obereg/motanka.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Мотанка</a>
-					  	</div>
-					  <div data-img="/articles/images/kukla_obereg/nerazluchniki.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Неразлучники</a>
-					  	</div>
-					  <div data-img="/articles/images/kukla_obereg/paraskeva.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Параскева</a>
-					  	</div>
-					  <div data-img="/articles/images/kukla_obereg/pelenashka.jpg">
-					  	<a class="link__fotorama"  href="http://kuklastadt.ru/articles/id/78">Кукла Пеленашка</a>
-				  	</div>
-					</div>
-				</article><!-- ./m-content__carousel -->
-									<div class="article-end">
+				<?= SliderRundWidget::widget()?>
+					<div class="article-end">
 						<p>. . . . .</p>
 						<p>На этом все</p>
 						<p>До следующих встреч на страницах сайта KuklaStadt!</p>

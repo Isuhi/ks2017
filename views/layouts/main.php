@@ -79,14 +79,14 @@ echo Nav::widget([
 ?>
 		<div class="header_main__logo">
 			<a class="on-main" href="/"></a>
-			<a href="/" title="На главную страницу"><img src="/web/img/logo4.png" alt="KuklaStadt - сайт о куклах" ></a>
+			<a href="/" title="На главную страницу"><img src="@web/img/logo4.png" alt="KuklaStadt - сайт о куклах" ></a>
 		</div><!-- ./header_main__logo -->
 </header><!-- ./header_main -->
 	<section class="search-banner">			
 		<section class="search">				
-			<form name="search" action="#" class="search-form" method="GET">
-					<input type="search" class="search-form__input" placeholder="Поиск по сайту" required="">
-					<button type="submit" class="search-form__btn" name="go"></button>
+			<form name="search" action="<?= Url::to(['catalog/search']) ?>" class="search-form" method="get">
+					<input type="search" class="search-form__input" placeholder="Поиск по сайту" name="search" required="">
+					<button type="submit" class="search-form__btn"></button>
 			</form>
 		</section><!-- ./menu_main__search -->
 		
@@ -116,7 +116,7 @@ echo Nav::widget([
 		</header>
 		<ul class="menu-sidebar__items">
 			<li class="menu-sidebar__item">
-				<a href="<?= Url::to(['catalog/all']) ?>">Все статьи сайта</a>
+				<a href="<?= Url::to(['catalog/all-articles']) ?>">Все статьи сайта</a>
 			</li>
 			<li class="menu-sidebar__item">
 				<a href="<?= Url::to(['catalog/master-classes']) ?>">Все статьи с мастер-классами</a>

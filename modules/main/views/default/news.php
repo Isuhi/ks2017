@@ -10,7 +10,7 @@ use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 
 
-$this->title = Module::t('module', 'TITLE_NEWS');
+//$this->title = Module::t('module', 'TITLE_NEWS');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 		<aside class="search-banner__banner">
