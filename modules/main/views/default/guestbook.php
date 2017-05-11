@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?php // debug($allReviews);					 exit() ?>
 						<li class="guestbook-comment__item">
 							<div class="guestbook-comment__data">
-								<p class="guestbook-comment__login"><?= $review->username ?></p>
+								<p class="guestbook-comment__login"><?php echo $review->username ?></p>
 
 								<p class="guestbook-comment__date"><?= Yii::$app->formatter->asDate($review->created_at, 'dd-MM-yyyy');?> г.</p>
 							</div>

@@ -14,7 +14,7 @@ class m170503_060719_create_guestbook_table extends Migration
     {
         $this->createTable('{{%guestbook}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull(),
+            'username' => $this->string()->notNull(),
             'email' => $this->string()->notNull(),
             'url' => $this->string(),
             'created_at' => $this->integer(),

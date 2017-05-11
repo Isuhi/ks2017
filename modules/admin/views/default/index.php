@@ -31,6 +31,9 @@ $this->title = Module::t('module', 'ADMIN');
     <p>
         <?= Html::a(UserModule::t('module', 'NAV_ADMIN_GUESTBOOK'), ['main/guestbook/index'], ['class' => 'btn btn-primary']) ?>
 		</p> 
+    <p>		
+        <?= Html::a(UserModule::t('module', 'NAV_ADMIN_COMMENTS'), ['main/comments/index'], ['class' => 'btn btn-primary']) ?>
+		</p> 
     <p>
         <?= Html::a(UserModule::t('module', 'ADMIN_USERS'), ['user/default/index'], ['class' => 'btn btn-primary']) ?>
     </p>

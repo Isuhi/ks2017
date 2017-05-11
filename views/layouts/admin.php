@@ -43,6 +43,7 @@ echo Nav::widget([
         ['label' => Yii::t('app', 'NAV_ADMIN_STATICPAGES'), 'url' => ['/admin/main/staticpages/index']],
         ['label' => Yii::t('app', 'NAV_ADMIN_NEWS'), 'url' => ['/admin/main/news/index']],
         ['label' => Yii::t('app', 'NAV_ADMIN_GUESTBOOK'), 'url' => ['/admin/main/guestbook/index']],
+        ['label' => Yii::t('app', 'NAV_ADMIN_COMMENTS'), 'url' => ['/admin/main/comments/index']],
         ['label' => Yii::t('app', 'NAV_ADMIN_USERS'), 'url' => ['/admin/user/default/index'], 'active' => $context->module->id == 'user'],
         ['label' => Yii::t('app', 'NAV_LOGOUT'), 'url' => ['/user/default/logout'], 'linkOptions' => ['data-method' => 'post']]
 			]]

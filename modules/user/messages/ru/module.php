@@ -9,6 +9,7 @@ return [
 		'ADMIN_ARTICLES' => 'Статьи',
 		'ADMIN_NEWS' => 'Новости',
 		'NAV_ADMIN_GUESTBOOK' => 'Гостевая книга',
+		'NAV_ADMIN_COMMENTS' => 'Комментарии',
 	
 		'PASSWORD' => 'Пароль',		
     'REPEAT_PASSWORD' => 'Повторите пароль',

@@ -18,6 +18,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+	
 		<?= $form->field($model, 'newPassword')->passwordInput(['maxlength' => true]) ?>
  
     <?= $form->field($model, 'newPasswordRepeat')->passwordInput(['maxlength' => true])?>
