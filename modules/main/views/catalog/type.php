@@ -40,6 +40,9 @@ $this->params['breadcrumbs'][] = $this->title;
 						Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h2>
 					<?php endif;?>
 				</header><!-- ./text-header -->
+				<article class="article-text">
+				<?= $types->text ?>					
+				</article><!-- ./article-text -->
 				<header class="text-header">
 					<h2 class="text-header__h2">В категории "<?= $types->name ?>" находятся следующие статьи:</h2>
 					<p>Всего статей - <?php echo $pages->totalCount?></p>	
@@ -80,8 +83,6 @@ $this->params['breadcrumbs'][] = $this->title;
 					<?php else: ?>
 						<h3>Здесь публикаций нет</h3>
 				<?php endif; ?>
-				<article class="article-text">
-									
 					<div class="article-end">
 						<p>. . . . .</p>
 					</div><!-- /.article-end -->
@@ -89,7 +90,6 @@ $this->params['breadcrumbs'][] = $this->title;
 						<p>Вы можете поделиться своим мнением об этой странице со всеми друзьями и знакомыми в социальных сетях:</p>
 						<div class="ya-share2 social-buttons" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,twitter,lj"></div>
 					</aside>
-				</article><!-- ./article-text -->
 				<aside class="m-content__banner m-content__banner-middle">
 					<div class="banner_c_c banner_728x90"> 
 						<a href="https://mchost.ru/?referer=4180319423" target=_blank><img src="//ban.mchost.ru/b/728x90.jpg" width="728" height="90" border="0" alt="Хостинг от Макхост" /></a>

@@ -12,6 +12,10 @@ if( $categoriesParent ):
 												'url' => ['catalog/category', 'alias' => $categoriesParent['alias']]
 											];	
 endif;
+$this->params['breadcrumbs'][] = [
+												'label' => $articles->categories->name,
+												'url' => ['catalog/category', 'alias' => $articles->categories->alias]
+											];	
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 	<aside class="search-banner__banner">
@@ -41,48 +45,26 @@ $this->params['breadcrumbs'][] = $this->title;
 					<?php endif;?>
 				</header><!-- ./text-header -->
 				<article class="article-text">
-				<?= $categories->text ?>
-				</article><!-- ./article-text -->
 				<header class="text-header">
-					<h2 class="text-header__h2">В категории "<?= $categories->name ?>" находятся следующие статьи:</h2>
-					<p>Всего статей - <?php echo $pages->totalCount?></p>	
+					<h1 class="text-header__h1"><?= $articles -> title ?></h1>
 				</header><!-- ./text-header -->
-				<?php if(!empty($articles)): ?>
-				<?php foreach ($articles as $article): ?>
-				<article class="catalog-item">
-	        <header class="catalog-item__header">
-		          <h3 class="catalog-item__header_h3">
-								<a href="<?= Url::to(['articles/view', 'alias' => $article->alias]) ?>">
-									<?= $article->title ?>
-								</a>
-							</h3>
-	        </header>
-	        <div class="catalog-item__wrapper">
-	        	<figure class="catalog-item__img">
-							<a href="<?= Url::to(['articles/view', 'alias' => $article->alias]) ?>">
-    	         <?= Html::img("/web/files/global/maxi/{$article->img}", ['alt' => $article->title, 'title' => $article->title]) ?>
-								</a>
-  	        </figure>
-  	        <?= $article->anons ?>
-	        </div>
-	        <aside class="catalog-item__details">
-	        	<div class="catalog-item__data-wrapper">
-	        		<p class="catalog-item__date">Дата публикации: <?= Yii::$app->formatter->asDate($article->created_at, 'dd-MM-yyyy');?>г.</p>
-		        	<p class="catalog-item__author">Автор: <?= $article->author ?></p>
-		        	<p class="catalog-item__view">Просмотров: <?= $article->view ?></p>
-	        	</div>
-	          <p class="catalog-item__link-more">
-	            <a href="<?= Url::to(['articles/view', 'alias' => $article->alias]) ?>">Читать статью</a>
-	          </p>
-	        </aside>	
-				</article><!-- ./catalog-item -->
-				<?php endforeach; ?>
-				<aside class="my_pagination">
-					<?php echo \yii\widgets\LinkPager::widget(['pagination' => $pages]); ?>	
+				<aside class="article-data">
+					<ul class="article-data__items">
+						<li class="article-data__item">
+							Статья из категории материалов: <a href="<?= Url::to(['catalog/type', 'alias' => $articles->type->alias]) ?>"><?= $articles->type->name ?></a>
+						</li>
+						<li class="article-data__item">Дата публикации: <?= Yii::$app->formatter->asDate($articles->created_at, 'dd-MM-yyyy');?> г.</li>
+						<?php if($articles->created_at < $articles->updated_at): ?>
+						<li class="article-data__item">Дата обновления: <?= Yii::$app->formatter->asDate($articles->updated_at, 'dd-MM-yyyy');?> г.</li>
+						<?php endif; ?>
+						<li class="article-data__item">Автор статьи: <?= $articles -> author ?></li>
+						<li class="article-data__item">Количество просмотров: <?= $articles -> view ?></li>
+					</ul>
 				</aside>
-					<?php else: ?>
-						<h3>Здесь публикаций нет</h3>
-				<?php endif; ?>
+				<header class="text-header">
+					<h3 class="text-header__h3-welcome">Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h3>
+				</header><!-- ./text-header -->
+				<?= $articles->text ?>		
 					<div class="article-end">
 						<p>. . . . .</p>
 					</div><!-- /.article-end -->
@@ -90,6 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<p>Вы можете поделиться своим мнением об этой странице со всеми друзьями и знакомыми в социальных сетях:</p>
 						<div class="ya-share2 social-buttons" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,twitter,lj"></div>
 					</aside>
+				</article><!-- ./article-text -->
 				<aside class="m-content__banner m-content__banner-middle">
 					<div class="banner_c_c banner_728x90"> 
 						<a href="https://mchost.ru/?referer=4180319423" target=_blank><img src="//ban.mchost.ru/b/728x90.jpg" width="728" height="90" border="0" alt="Хостинг от Макхост" /></a>

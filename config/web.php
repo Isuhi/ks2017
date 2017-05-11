@@ -1,5 +1,4 @@
 <?php
-
 $config = [
     'id' => 'app',
 		'language' => 'ru-RU',

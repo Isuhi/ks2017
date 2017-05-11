@@ -23,11 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
+            'name',
 						[
 							'attribute' => 'parent_id',
 							'value' => 'parent.name',
 						],
-            'name',
             'alias',
 //            'keywords:ntext',
             // 'description:ntext',
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							],
 							'format' => 'boolean',
 						],
-            // 'text:ntext',
+            'text:html',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

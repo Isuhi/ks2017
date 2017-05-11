@@ -22,7 +22,10 @@
         "bower-asset/respond": "*",
 		"bower-asset/jquery": "1.*",
         "kartik-v/yii2-widget-datepicker": "*",
-        "kartik-v/yii2-field-range": "*"
+        "kartik-v/yii2-field-range": "*",
+        "mihaildev/yii2-ckeditor": "*",
+        "mihaildev/yii2-elfinder": "*",
+        "yiisoft/yii2-jui": "^2.0@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

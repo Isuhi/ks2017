@@ -27,17 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
 //            'parent_id',
+            'name',
 					[
 						'attribute' => 'parent_id',
 //						'filter' => Categories::find()->select(['name', 'id'])->indexBy('id')->column(),
 						'value' => 'parent.name',
 					],
-            'name',
             'alias',
             //'keywords:ntext',
             // 'description:ntext',
-            // 'text:ntext',
-//            'visible:boolean',
+             'text:ntext',
 					[
 						'attribute' => 'visible',
 						'filter' => [

@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'keywords:ntext',
             'description:ntext',
             'visible:boolean',
-            'text:ntext',
+            'text:html',
         ],
     ]) ?>
 

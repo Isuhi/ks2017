@@ -23,17 +23,6 @@ return [
 				'app\modules\user\Bootstrap',
 		],
 		'language' => 'ru-RU',
-//		'modules' => [
-////				'admin' => [
-////            'class' => 'app\modules\admin\Module',
-////        ],
-////        'main' => [
-////            'class' => 'app\modules\main\Module',
-////        ],
-////				'user' => [
-////            'class' => 'app\modules\user\Module',
-////        ],
-//    ],
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
@@ -44,7 +33,7 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
 'rules' => [
-	[
+		[
 			'class' => 'yii\web\GroupUrlRule',
 			'prefix' => 'admin',
 			'routePrefix' => 'admin',
@@ -57,26 +46,27 @@ return [
 					'<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_m>/<_c>/<_a>',
 					'<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
 			],
-	],
-
-		'news/<alias:[\w-]+>' => 'main/news/view',
+		],
 	
-		'search/<search:[\w-]+>' => 'main/catalog/search',
-	
-		'<_a>/<alias:[\w-]+>/page<page:\d+>' => 'main/catalog/<_a>',
-		'<_a>/<alias:[\w-]+>' => 'main/catalog/<_a>',
-		'<_a>/page/<page:\d+>' => 'main/catalog/<_a>',
-		'<_a>' => 'main/catalog/<_a>',
-	
-		'' => 'main/default/index',
-		'contact' => 'main/contact/index',
 		'<_a:(about|map|news|guestbook)>' => 'main/default/<_a>',
-		'<_a:error>' => 'main/default/<_a>',
-
+		'contact' => 'main/contact/index',
+	
+		'foto' => 'web/files/global/maxi',
+		'news/<alias:[\w-]+>' => 'main/news/view',	
+		'articles/<alias:[\w-]+>' => 'main/articles/view',	
+		'search/<search:[\w-]+>' => 'main/catalog/search',	
+		'<_a>/<alias:[\w-]+>/page<page:\d+>' => 'main/catalog/<_a>',
+	
+		'category/<alias:[\w-]+>' => 'main/catalog/category',
+		'type/<alias:[\w-]+>' => 'main/catalog/type',
+	
+		'<_a>/page/<page:\d+>' => 'main/catalog/<_a>',
+		'<_a>' => 'main/catalog/<_a>',	
+		'' => 'main/default/index',
+	
 		'<_a:(login|logout|signup|email-confirm|password-reset-request|password-reset)>' => 'user/default/<_a>',
-
 		'<_m:[\w\-]+>' => '<_m>/default/index',
-		'<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
+//		'<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
 		'<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w-]+>' => '<_m>/<_c>/<_a>',
 		'<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/view',
 		'<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_m>/<_c>/<_a>',
@@ -103,5 +93,21 @@ return [
 				 'class' => 'app\components\AuthManager',
 				],
     ],
+		'controllerMap' => [
+			'elfinder' => [
+					'class' => 'mihaildev\elfinder\Controller',
+					'access' => ['permAdminPanel'],
+//					'disabledCommands' => ['netmount'],
+					'roots' => [
+							[
+									'baseUrl' => '/web',
+//									'basePath' => '@webroot',
+									'path' => 'files/global',
+									'name' => 'Global'
+							]
+					]
+				]
+		],
+
     'params' => $params,
 ];

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\main\Module;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\main\models\backend\News */
@@ -22,9 +23,21 @@ use app\modules\main\Module;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'anons')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'anons')->widget(CKEditor::className(),
+				[
+					'editorOptions' => [
+						 'height' => 200,
+						 'allowedContent' => true,
+					 ],
+				 ]); ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(CKEditor::className(),
+				[
+					'editorOptions' => [
+						 'height' => 400,
+						 'allowedContent' => true,
+					 ],
+				 ]); ?>
 
     <?= $form->field($model, 'visible')->checkbox() ?>
 

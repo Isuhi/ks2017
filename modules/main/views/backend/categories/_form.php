@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use app\modules\main\models\backend\Categories;
 use app\modules\main\Module;
 use yii\helpers\ArrayHelper;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Categories */
@@ -26,7 +27,13 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(CKEditor::className(),
+				[
+					'editorOptions' => [
+						 'height' => 200,
+						 'allowedContent' => true,
+					 ],
+				 ]); ?>
 
     <?= $form->field($model, 'visible')->checkbox() ?>
 

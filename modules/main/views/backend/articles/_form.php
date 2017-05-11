@@ -6,7 +6,9 @@ use app\modules\main\Module;
 use app\modules\main\models\backend\Articles;
 use app\modules\main\models\backend\Categories;
 use app\modules\main\models\backend\Types;
-
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
+mihaildev\elfinder\Assets::noConflict($this);
 /* @var $this yii\web\View */
 /* @var $model app\modules\main\models\backend\Articles */
 /* @var $form yii\widgets\ActiveForm */
@@ -29,9 +31,24 @@ use app\modules\main\models\backend\Types;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'anons')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'anons')->widget(CKEditor::className(),
+				[
+					'editorOptions' => [
+						 'height' => 200,
+						 'allowedContent' => true,
+					 ],
+				 ]); ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(CKEditor::className(), 
+				[
+					'editorOptions' => ElFinder::ckeditorOptions(
+						'elfinder', 
+						[
+							'height' => 500,
+							'allowedContent' => true,
+						]
+					),
+				]); ?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
@@ -49,7 +66,7 @@ use app\modules\main\models\backend\Types;
     <?= $form->field($model, 'master_class')->checkbox() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Module::t('module', 'CREATE') : Module::t('module', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Module::t('module', 'CREATE') : Module::t('module', 'UPDATE'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
