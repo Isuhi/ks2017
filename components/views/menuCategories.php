@@ -1,5 +1,5 @@
 <?php
-//debug($data);
+
 ?>
 
 <li class="menu-sidebar__item menu-sidebar__item_active">
