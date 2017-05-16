@@ -64,7 +64,7 @@ return [
 		'<_a>' => 'main/catalog/<_a>',	
 		'' => 'main/default/index',
 	
-		'<_a:(login|logout|signup|email-confirm|password-reset-request|password-reset)>' => 'user/default/<_a>',
+		'user/<_a:(login|logout|signup|email-confirm|password-reset-request|password-reset)>' => 'user/default/<_a>',
 		'<_m:[\w\-]+>' => '<_m>/default/index',
 //		'<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
 		'<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w-]+>' => '<_m>/<_c>/<_a>',

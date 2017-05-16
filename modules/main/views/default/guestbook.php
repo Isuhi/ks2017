@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					</header><!-- ./text-header -->
 				<article class="article-text">
 		<?= $guestbook->text ?>
-					<aside class="guestbook-form">
+					<aside class="form">
 						<?php $form = ActiveForm::begin(); ?>
 							<?= $form->field($data,  'username')->hint('Это обязательное поле. Для удобства общения с вами используйте привычные для людей имена, хотя... бывает всякое, поэтому лучше всего назовитесь своим настоящим именем )).') ?>
 							<?= $form->field($data,  'email')->hint('Это обязательное поле. Эти данные не публикуются. Пожалуйста, вводите существующий адрес в формате: mail@mail.mail')->input('email') ?>

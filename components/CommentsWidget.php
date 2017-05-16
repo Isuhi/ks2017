@@ -9,6 +9,8 @@
 namespace app\components;
 use yii\base\Widget;
 use app\modules\main\models\backend\Comments;
+use Yii;
+use app\modules\main\models\backend\Articles;
 
 /**
  * Description of CommentsWidget
@@ -26,7 +28,9 @@ class CommentsWidget extends Widget{
 	}
 	
 	public function run() {
-		$this->data = Comments::find()->where(['visible' => '1'])->indexBy('id')->asArray()->all();
+		$alias = Yii::$app->request->get('alias');
+		$article_id = Articles::find()->select('id')->where(['alias' => $alias])->asArray()->limit(1)->one();
+		$this->data = Comments::find()->with('parent')->where(['article_id' => $article_id])->indexBy('id')->asArray()->all();
 		$this->data = $this->getTree();
 		$this->data = $this->getMenuHtml($this->data);
 		return $this->data;
@@ -58,6 +62,4 @@ class CommentsWidget extends Widget{
 		include __DIR__ . '/views/comments.php' ;
 		return ob_get_clean();
 	}
-	
-
 }

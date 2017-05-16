@@ -1,22 +1,26 @@
 <?php
+
 namespace app\modules\main\models\form;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\Url;
+use yii\helpers\Html;
 use app\modules\main\Module;
-use app\modules\user\models\User;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
-use app\modules\main\models\backend\Guestbook;
-use yii\helpers\HtmlPurifier;
+use app\modules\main\models\backend\Comments;
 
-class GuestbookForm extends Model
+
+class CommentsForm extends Model
 {
     public $username;
     public $email;
     public $url;
     public $text;
     public $verifyCode;
+    public $role;
+    public $article_id;
+    public $parent_id;
 		
 		const LONG_WORD = 35;
 
@@ -26,14 +30,12 @@ class GuestbookForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'match', 'pattern' => '/^[a-zа-яё0-9_\-\s]+$/uis'],
-//            ['username', 'unique', 'targetClass' => User::className(), 'message' => Module::t('module', 'ERROR_USERNAME_EXISTS')],
             ['username', 'string', 'min' => 4, 'max' => 100],
 						['username', 'validatorLongWords'],
  
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-//            ['email', 'unique', 'targetClass' => User::className(), 'message' => Module::t('module', 'ERROR_EMAIL_EXISTS')],
             ['email', 'string', 'max' => 255],
 					
             ['text', 'required'],
@@ -43,9 +45,10 @@ class GuestbookForm extends Model
 					
             ['url', 'url'],
             ['url', 'filter', 'filter' => 'trim'],
+						['text', 'filter', 'filter' => 'strip_tags'],
             ['url', 'string', 'max' => 255],
 				
-           ['verifyCode', 'captcha', 'captchaAction' => '/main/default/captcha'],
+           ['verifyCode', 'captcha', 'captchaAction' => '/main/articles/captcha'],
         ];
     }
 		
@@ -59,6 +62,7 @@ class GuestbookForm extends Model
 						}
 				}
 		}
+
     /**
      * @inheritdoc
      */
@@ -77,45 +81,51 @@ class GuestbookForm extends Model
     {
         return [
             [
-                'class' => TimestampBehavior::className(),
-                'attributes' => [
-										ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => false,
-                ],
-                
+                'class' => TimestampBehavior::className(),           
             ],
         ];
     }
 		
-		public function insGB() {
+		public function insComment() {
 
-				$data = new Guestbook;
-				$data->username = $this->username;
-				$data->email = $this->email;
-				$data->url = $this->url;
-				$data->text = $this->text;
+				$commentForm = new Comments;
+				$commentForm->username = $this->username;
+				$commentForm->email = $this->email;
+				$commentForm->url = $this->url;
+				$commentForm->text = $this->text;
+				$commentForm->article_id = $this->article_id;
+				$commentForm->parent_id = $this->parent_id;
+				$commentForm->role = $this->role;
 				
-				return $data;
+				return $commentForm;
 
 		}
 		
-		public function emailGB()
+		public function emailComment($title, $alias)
     {
-//        if ($this->validate()) {
             Yii::$app->mailer->compose()
                 ->setTo([Yii::$app->params['adminEmail'] => Yii::$app->name])
                 ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
                 ->setReplyTo([$this->email => $this->username])
-                ->setSubject('Новое сообщение в гостевой книге')
-                ->setHtmlBody('<p>На сайте KuklaStadt посетитель <b>'. $this->username.'</b> оставил сообщение в гостевой книге: </p><p>'. $this->text.'</p><p>Электронная почта автора сообщения: '.$this->email.'</p><p>Сайт автора сообщения: '.$this->url.'</p>')
+                ->setSubject('Новый комментарий на сайте KuklaStadt')
+                ->setHtmlBody('<p>На сайте KuklaStadt посетитель <b>'. $this->username.'</b> оставил комментарий к статье: ' . $title . ': </p><p>'. $this->text.'</p><p>Электронная почта комментатора: '.$this->email.'</p><p>Сайт комментатора: '.$this->url.'</p><p>Ссылка на страницу со статьей: '. Yii::$app->urlManager->createAbsoluteUrl(['articles/'.$alias]) .'</p>')
                 ->send();
 
             return true;
-//        } else {
-//            return false;
-//        }
     }
+		
+		public function emailParentComment($email, $alias)
+    {
+            Yii::$app->mailer->compose()
+                ->setTo($email)
+                ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
+                ->setReplyTo([Yii::$app->params['supportEmail'] => Yii::$app->name])
+                ->setSubject('Комментарий на сайте KuklaStadt')
+                ->setHtmlBody('<p>На ваш комментарий на сайте KuklaStadt кто-то ответил: </p><p>'. $this->text.'</p><p>Ссылка на страницу со статьей: '. Yii::$app->urlManager->createAbsoluteUrl(['articles/'.$alias]) .'</p>')
+                ->send();
 
-
+            return true;
+    }
+		
 }
 

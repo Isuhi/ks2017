@@ -26,6 +26,8 @@ class SignupForm extends Model
     public $verifyCode;
 		
 		private $_defaultRole;
+		
+		const LONG_WORD = 35;
  
     public function __construct($defaultRole, $config = [])
     {
@@ -40,7 +42,8 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'match', 'pattern' => '/^[a-zа-яё0-9_\-\s]+$/uis'],
             ['username', 'unique', 'targetClass' => User::className(), 'message' =>  Module::t('module', 'ERROR_USERNAME_EXISTS')],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'string', 'min' => 2, 'max' => 100],
+						['username', 'validatorLongWords'],
  
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
@@ -53,6 +56,17 @@ class SignupForm extends Model
             ['verifyCode', 'captcha', 'captchaAction' => '/user/default/captcha'],
         ];
     }
+
+		public function validatorLongWords ( $attribute )
+		{
+				$parts = explode( ' ', $this->$attribute );
+				foreach ( $parts as $word ) {
+						if ( mb_strlen( $word ) > self::LONG_WORD ) { # Для UTF-8 и русского текста используем mb_strlen( $word )
+								$this->addError( $attribute, 'В каком-то слове слишком много букв! Попробуйте использовать слова покороче.' );
+								break; # или return;
+						}
+				}
+		}
 		
 		public function attributeLabels()
     {

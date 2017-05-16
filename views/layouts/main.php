@@ -79,7 +79,7 @@ echo Nav::widget([
 ?>
 		<div class="header_main__logo">
 			<a class="on-main" href="/"></a>
-			<a href="/" title="На главную страницу"><img src="@web/img/logo4.png" alt="KuklaStadt - сайт о куклах" ></a>
+			<a href="/" title="На главную страницу"><img src="/web/img/logo4.png" alt="KuklaStadt - сайт о куклах" ></a>
 		</div><!-- ./header_main__logo -->
 </header><!-- ./header_main -->
 	<section class="search-banner">			

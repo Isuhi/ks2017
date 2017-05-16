@@ -145,6 +145,7 @@ class DefaultController extends Controller
 			$res = User::findOne(['email' => $email]);
 			return $res;
 		}
+	
 		
 	
 }

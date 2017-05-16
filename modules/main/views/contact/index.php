@@ -60,6 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<h1 class="text-header__h1"><?= $contact -> title ?></h1>
 					</header><!-- ./text-header -->
 					<?= $contact->text?>
+					<section  class="form">
 					<div class="row">
 						<div class="col-lg-9">
 							<?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
@@ -77,6 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							<?php ActiveForm::end(); ?>
 						</div>
 					</div>
+						</section>
 					<?php endif; ?>
 				</div>
 		<div class="article-end">

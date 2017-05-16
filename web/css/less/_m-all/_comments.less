@@ -28,12 +28,14 @@
 }
 
 .comment__login {
-
+	max-width: 500px;
+	overflow: hidden;
 }
 
 .comment__date {
 	font-size: 12px;
-
+  min-width: 120px;
+  text-align: right
 
 }
 
@@ -138,4 +140,94 @@
 		font-size: 16px;
 	}
 
+}
+
+.without_comments {
+	margin: 10px;
+	padding: 10px;
+	bottom: 4px double #25782f;
+	background: linear-gradient(#f5f1e0, #d7cc9e);
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+
+	& span{
+		font-size: 14px;
+		color: #6c190f;
+		font-style: italic;
+		font-weight: normal;
+	}
+
+}
+
+.links_auth {
+	margin: 10px;
+	padding: 10px;
+	border: 4px double #25782f;
+	background: linear-gradient(#f5f1e0, #d7cc9e);
+	text-align: center;
+	font-size: 16px;
+	color: #000;
+}
+
+.submit_ks {
+	margin: 10px;
+	padding: 10px;
+	border: 4px double #6c190f;
+	background: linear-gradient(#f5f1e0, #d7cc9e);
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 10px;
+
+	&:hover {
+		margin-left: 12px;
+		background: linear-gradient(#f5f1e0, #d7cc9e);
+		color: #000;
+
+	}
+	&:active {
+		background: #ccc;
+		box-shadow: 1px 1px 3px #292626;
+		border: 4px double #000;
+		margin-left: 12px;
+		background: #ccc;
+		color: #000;
+
+	}
+}
+.reply-comment a.link_comm {
+	padding: 10px;
+	border: 4px double #6c190f;
+	background: linear-gradient(#f5f1e0, #d7cc9e);
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 10px;
+	text-decoration: none;
+	display: block;
+	width: 200px;
+
+	&:hover {
+		margin-left: 12px;
+		background: linear-gradient(#f5f1e0, #d7cc9e);
+		color: #000;
+
+	}
+	&:active {
+		background: #ccc;
+		box-shadow: 1px 1px 3px #292626;
+		border: 4px double #000;
+		margin-left: 12px;
+		background: #ccc;
+		color: #000;
+
+	}
+}
+
+@media (max-width: 500px) {
+	section #comment-form.form {
+		margin-left: 0;
+	}
 }

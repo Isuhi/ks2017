@@ -5,6 +5,9 @@ use app\modules\user\Module;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use app\components\CommentsWidget;
+use yii\widgets\ActiveForm;
+use yii\captcha\Captcha;
+use app\modules\user\models\User;
 
 
 if( $categoriesParent ):
@@ -81,15 +84,54 @@ $this->params['breadcrumbs'][] = $this->title;
 <header class="text-header">
 	<h3 class="text-header__h3">Комментарии</h3>
 </header><!-- ./text-header -->
-<p class="comments_count">Всего комментариев - 45.</p>
-<section id="comment-form" class="form">
-	
-</section>
+<p class="comments_count">Всего комментариев - <?= $countComments; ?>.</p>
+<?php if($articles->comment): ?>	
+<p class="reply-comment"><a class="link_comm" href="#comment-form">Оставить комментарий</a></p>
+<?php endif;?>
 <section class="article__comments comments__all">
 	<ul class="comments__items">
 		<?= CommentsWidget::widget();?>
-	</ul>
+	</ul>	
 </section>
+<?php if($articles->comment): ?>
+
+<section id="comment-form" class="form">
+<?php if(Yii::$app->user->isGuest): ?>
+	<div class="links_auth">
+		<p>Что бы не вводить каждый раз свое имя и почту, вы можете
+			<?= Html::a('Войти на сайт', ['/user/default/login'], ['title' => 'Страница для входа']) ?> 
+			или 
+			<?= Html::a('Зарегистрироваться', ['/user/default/signup'], ['title' => 'Страница для регистрации']) ?>
+			, если еще этого не сделали. Тогда ваши данные будут прописываться автоматически.</p>
+	</div>
+<?php endif;?>
+
+	<?php $form = ActiveForm::begin(); ?>
+		<?= $form->field($commentForm,  'username')->hint('Это обязательное поле. Для удобства общения с вами используйте привычные для людей имена, хотя... бывает всякое, поэтому лучше всего назовитесь своим настоящим именем )).') ?>
+		<?= $form->field($commentForm,  'email')->hint('Это обязательное поле. Эти данные не публикуются. Пожалуйста, вводите существующий адрес в формате: mail@mail.mail')->input('email') ?>
+		<?= $form->field($commentForm,  'url')->hint('Это необязательное поле. Эти данные не публикуются. Пожалуйста, вводите существующий адрес в формате: http(s)://site.site') ?>
+		<?php // echo $form->field($commentForm, 'CommentForm[parent_id]')->hiddenInput()->label(false, ['style'=>'display:none']);
+		echo Html::activeHiddenInput($commentForm, 'parent_id', $options = []) 
+		?>
+		<?= $form->field($commentForm, 'text')->textarea(['rows' => 6])->hint('Это обязательное поле. Пожалуйста, не публикуйте ссылки на другие ресурсы или программный код.')?>
+	<?php  echo $form->field($commentForm, 'verifyCode')->hint('Это обязательное поле. Если символы вам непонятны, то кликните по ним левой клавишей мышки - они изменятся.')->widget(Captcha::className(), [
+			'captchaAction' => '/main/articles/captcha',
+		 'template' => '<div class="row"><div class="col-lg-6">{image}</div><div class="col-lg-6">{input}</div></div>',
+	]) ?>
+	<div class="form-group">
+		<?= Html::submitButton('Отправить', ['class' => 'submit_ks']) ?>
+	</div>
+	<?php ActiveForm::end(); ?>
+
+</section>
+<?php else: ?>
+<div class="without_comments">
+<p>
+По какой-то причине администратор взял, да и отключил возможность комментирования на этой странице. Просто деспот какой-то - делает, что хочет!!! </p>
+<p><span>(Но можно на него нажаловаться, написав письмо на странице <a target="_blank" href="/contact" title="Напишите нам письмо">Контакты</a>, где вы можете высказать свои впечатления от прочитанного или обсудить другие вопросы.)</span>
+	</p>
+</div>
+<?php endif; ?>
 						<!--/Блок комментариев-->
 				<aside class="m-content__banner m-content__banner-middle">
 					<div class="banner_c_c banner_728x90"> 
