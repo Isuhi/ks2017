@@ -9,6 +9,7 @@ use app\components\MenuCategoriesWidget;
 use app\components\MenuTypesWidget;
 use app\components\SliderNewWidget;
 use yii\helpers\Url;
+use yii\helpers\Html;
 use app\modules\main\models\backend\Staticpages;
 
  
@@ -129,7 +130,7 @@ echo Nav::widget([
 			<h2 class="m-sidebar__header-h2">Реклама</h2>
 		</header>
 		<div class="block_reklami-left">
-			<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_280x460_igrovaja_v1.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+			<?=  Html::a(Html::img('/web/files/global/reclama/ks_280x460_igrovaja_v1.jpg', ['alt' => 'Игровые куклы на сайте KuklaStadt']), '/category/igrovaya-kukla', ['alt' => 'Игровые куклы на сайте KuklaStadt','title' => 'Игровые куклы на сайте KuklaStadt'])?>
 		</div>
 	</aside>	
 	<aside class="m-sidebar__menu">
@@ -137,7 +138,7 @@ echo Nav::widget([
 			<h2 class="m-sidebar__header-h2">Реклама</h2>
 		</header>
 		<div class="block_reklami-left">
-			<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_280x460_obrjadovaja_v2.jpg" width="280" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+			<?=  Html::a(Html::img('/web/files/global/reclama/ks_280x460_obrjadovaja_v2.jpg', ['alt' => 'Обрядовые куклы на сайте KuklaStadt']), '/category/obryadovaya-kukla', ['alt' => 'Обрядовые куклы на сайте KuklaStadt','title' => 'Обрядовые куклы на сайте KuklaStadt'])?>
 		</div>
 	</aside>
 	<aside class="m-sidebar__menu m-sidebar__menu-grow">
@@ -152,17 +153,41 @@ echo Nav::widget([
 					<h2 class="m-sidebar__header-h2">Метрика сайта KuklaStadt</h2>
 				</header>
 					<div id="ratingMail" class="ratingMail">
-						  <!-- Rating@Mail.ru logo -->
-						    <a href="http://top.mail.ru/jump?from=2516756">
-						    <img src="//top-fwz1.mail.ru/counter?id=2516756;t=326;l=1" 
-						    style="border:0;" height="18" width="88" alt="Рейтинг@Mail.ru" /></a>
-						  <!-- //Rating@Mail.ru logo -->
+<!-- Rating@Mail.ru counter -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "2516756", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="//top-fwz1.mail.ru/counter?id=2516756;js=na" style="border:0;position:absolute;left:-9999px;" alt="" />
+</div></noscript>
+<!-- //Rating@Mail.ru counter -->
+
+<!-- Rating@Mail.ru logo -->
+<a href="http://top.mail.ru/jump?from=2516756">
+<img src="//top-fwz1.mail.ru/counter?id=2516756;t=326;l=1" 
+style="border:0;" height="18" width="88" alt="Рейтинг@Mail.ru" /></a>
+<!-- //Rating@Mail.ru logo -->
 						  </div>
 						  <div id="counter_LiveInternet">
-						    <!--LiveInternet logo--><a href="//www.liveinternet.ru/click"
-						    target="_blank"><img src="//counter.yadro.ru/logo?24.3"
-						    title="LiveInternet: показано число посетителей за сегодня"
-						    alt="" border="0" width="88" height="15"/></a><!--/LiveInternet-->
+						    <!--LiveInternet counter-->
+								<script type="text/javascript">
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t24.2;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число посетителей за"+
+" сегодня' "+
+"border='0' width='88' height='15'><\/a>")
+</script><!--/LiveInternet-->
 						  </div>
 						  <div id="counter_rambler">
 							  <!-- Top100 (Kraken) Widget -->

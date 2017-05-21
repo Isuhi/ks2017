@@ -10,7 +10,91 @@ RewriteRule ^images/(.*)$ web/articles/images/$1 [L]
 #RewriteRule ^img/(.*)$ web/img/$1 [L]
 RewriteRule (.*) /web/$1
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /web/index.php
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /web/index.php
+
+
+Redirect 301 /articles/id/121 http://kuklastadt.ru/articles/krasnyy-petuh---simvol-2017-goda
+Redirect 301 /articles/id/120 http://kuklastadt.ru/articles/kukla-mishka-kukla-mashka
+Redirect 301 /articles/id/119 http://kuklastadt.ru/articles/kukla-mirovoe-derevo
+Redirect 301 /articles/id/118 http://kuklastadt.ru/articles/kukla-ptica-sirin
+Redirect 301 /articles/id/117 http://kuklastadt.ru/articles/kukly-na-vesennie-zaklichki
+Redirect 301 /articles/id/116 http://kuklastadt.ru/articles/kukla-malyshok-golyshok
+Redirect 301 /articles/id/115 http://kuklastadt.ru/articles/kukla-barynya
+Redirect 301 /articles/id/114 http://kuklastadt.ru/articles/tryapichnye-igrovye-kukly
+Redirect 301 /articles/id/113 http://kuklastadt.ru/articles/kukla-kuklak
+Redirect 301 /articles/id/112 http://kuklastadt.ru/articles/kukla-bessonnica
+Redirect 301 /articles/id/111 http://kuklastadt.ru/articles/kukla-zaychik-na-palchik
+Redirect 301 /articles/id/110 http://kuklastadt.ru/articles/kukla-kolyada
+Redirect 301 /articles/id/109 http://kuklastadt.ru/articles/kukla-melanka
+Redirect 301 /articles/id/108 http://kuklastadt.ru/articles/kukla-melanka
+Redirect 301 /articles/id/107 http://kuklastadt.ru/articles/kukla-maslenica
+Redirect 301 /articles/id/106 http://kuklastadt.ru/articles/kukla-uspeshnica
+Redirect 301 /articles/id/105 http://kuklastadt.ru/articles/kukla-jelannica
+Redirect 301 /articles/id/104 http://kuklastadt.ru/articles/kukla-kukushka
+Redirect 301 /articles/id/103 http://kuklastadt.ru/articles/kukla-slavutnica
+Redirect 301 /articles/id/102 http://kuklastadt.ru/articles/kukla-metlushka
+Redirect 301 /articles/id/101 http://kuklastadt.ru/articles/kukla-soroka
+Redirect 301 /articles/id/100 http://kuklastadt.ru/articles/kukla-ryabinka
+Redirect 301 /articles/id/99 http://kuklastadt.ru/articles/kukla-simeon-stolpnik
+Redirect 301 /articles/id/98 http://kuklastadt.ru/articles/kukla-koza
+Redirect 301 /articles/id/97 http://kuklastadt.ru/articles/kukla-kostroma
+Redirect 301 /articles/id/96 http://kuklastadt.ru/articles/kukla-kuzma-i-demyan
+Redirect 301 /articles/id/95 http://kuklastadt.ru/articles/kukla-paraskeva
+Redirect 301 /articles/id/94 http://kuklastadt.ru/articles/kukla-karelskaya-rvanka
+Redirect 301 /articles/id/93 http://kuklastadt.ru/articles/kukla-semya
+Redirect 301 /articles/id/92 http://kuklastadt.ru/articles/kukla-devka-baba
+Redirect 301 /articles/id/91 http://kuklastadt.ru/articles/kukla-pervocvet
+Redirect 301 /articles/id/90 http://kuklastadt.ru/articles/kukla-ptica-radost
+Redirect 301 /articles/id/89 http://kuklastadt.ru/articles/kukla-martinichka
+Redirect 301 /articles/id/88 http://kuklastadt.ru/articles/kukla-horovodnica
+Redirect 301 /articles/id/87 http://kuklastadt.ru/articles/kukla-filippovka
+Redirect 301 /articles/id/86 http://kuklastadt.ru/articles/kukla-solnechnyy-kon
+Redirect 301 /articles/id/85 http://kuklastadt.ru/articles/kukla-sudarushka
+Redirect 301 /articles/id/84 http://kuklastadt.ru/articles/kukla-otdarok-na-podarok
+Redirect 301 /articles/id/83 http://kuklastadt.ru/articles/kukla-platochnica-ili-vyatskaya-kukla
+Redirect 301 /articles/id/82 http://kuklastadt.ru/articles/kukla-kapustka-ili-vepsskaya-kukla
+Redirect 301 /articles/id/81 http://kuklastadt.ru/articles/kukla-kormilka
+Redirect 301 /articles/id/80 http://kuklastadt.ru/articles/kukla-nedolya
+Redirect 301 /articles/id/79 http://kuklastadt.ru/articles/kukla-dolya
+Redirect 301 /articles/id/78 http://kuklastadt.ru/articles/russkie-obryadovye-kukly
+Redirect 301 /articles/id/77 http://kuklastadt.ru/articles/slavyanskie-kukly-oberegi
+Redirect 301 /articles/id/76 http://kuklastadt.ru/articles/kukla-strigushka
+Redirect 301 /articles/id/75 http://kuklastadt.ru/articles/kukla-pokosnica
+Redirect 301 /articles/id/74 http://kuklastadt.ru/articles/kukla-krestec
+Redirect 301 /articles/id/73 http://kuklastadt.ru/articles/kukla-kupavka
+Redirect 301 /articles/id/72 http://kuklastadt.ru/articles/kukla-uteshnica
+Redirect 301 /articles/id/71 http://kuklastadt.ru/articles/kukly-lihomanki
+Redirect 301 /articles/id/70 http://kuklastadt.ru/articles/kukla-mokridina
+Redirect 301 /articles/id/69 http://kuklastadt.ru/articles/kukla-kolokolchik
+Redirect 301 /articles/id/68 http://kuklastadt.ru/articles/kukla-severnaya-bereginya
+Redirect 301 /articles/id/67 http://kuklastadt.ru/articles/kukla-kuvadka
+Redirect 301 /articles/id/66 http://kuklastadt.ru/articles/obezyanka-iz-shersti
+Redirect 301 /articles/id/65 http://kuklastadt.ru/articles/kukla-nerazluchniki
+Redirect 301 /articles/id/64 http://kuklastadt.ru/articles/dom-dlya-kukly
+Redirect 301 /articles/id/63 http://kuklastadt.ru/articles/gde-pryachutsya-kukly
+Redirect 301 /articles/id/62 http://kuklastadt.ru/articles/pashalnye-igrushki
+Redirect 301 /articles/id/61 http://kuklastadt.ru/articles/tryapichnaya-kukla-svoimi-rukami
+Redirect 301 /articles/id/60 http://kuklastadt.ru/articles/tryapichnaya-kukla
+Redirect 301 /articles/id/59 http://kuklastadt.ru/articles/kukla-motanka
+Redirect 301 /articles/id/58 http://kuklastadt.ru/articles/kukly-marionetki
+Redirect 301 /articles/id/57 http://kuklastadt.ru/articles/kukla-kubyshka-travnica
+Redirect 301 /articles/id/56 http://kuklastadt.ru/articles/kukla-krupenichka
+Redirect 301 /articles/id/55 http://kuklastadt.ru/articles/kukla-desyatiruchka
+Redirect 301 /articles/id/54 http://kuklastadt.ru/articles/tryapichnaya-kukla-podorojnica
+Redirect 301 /articles/id/53 http://kuklastadt.ru/articles/tryapichnaya-kukla-vesnyanka
+Redirect 301 /articles/id/52 http://kuklastadt.ru/articles/tryapichnaya-kukla-spiridon-solncevorot
+Redirect 301 /articles/id/51 http://kuklastadt.ru/articles/obezyana-suhoe-valyanie-iz-shersti
+Redirect 301 /articles/id/50 http://kuklastadt.ru/articles/kukla-pelenashka
+Redirect 301 /articles/id/49 http://kuklastadt.ru/articles/kukly-sredi-lyudey
+Redirect 301 /articles/id/48 http://kuklastadt.ru/articles/tryapichnaya-kukla-den-noch-2
+Redirect 301 /articles/id/47 http://kuklastadt.ru/articles/tryapichnaya-kukla-den-noch
+Redirect 301 /articles/id/46 http://kuklastadt.ru/articles/russkaya-tryapichnaya-kukla
+Redirect 301 /articles/id/45 http://kuklastadt.ru/articles/kukla-schaste
+Redirect 301 /articles/id/44 http://kuklastadt.ru/articles/zayac-suhoe-valyanie
+Redirect 301 /articles/id/43 http://kuklastadt.ru/articles/cyplenok-suhoe-valyanie
+Redirect 301 /articles/id/42 http://kuklastadt.ru/articles/landshaftnaya-kukla
+Redirect 301 /articles/id/41 http://kuklastadt.ru/articles/suhoe-valyanie
+Redirect 301 /articles/id/40 http://kuklastadt.ru/articles/valyanie
 

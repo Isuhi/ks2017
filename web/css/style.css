@@ -904,6 +904,7 @@ background-size: cover; */
   display: -o-flex;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 .m-content__wrapper {
   display: -webkit-flex;
@@ -912,6 +913,7 @@ background-size: cover; */
   display: -o-flex;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   /* justify-content: space-between; */
 }
 .text-header {
@@ -955,14 +957,20 @@ background-size: cover; */
     flex-direction: row;
   }
   .m-content__wrapper {
-    flex: 3 1 0;
+    flex: 3 1 0%;
   }
 }
 @media (min-width: 1200px) {
   .m-all__m-content {
     /* order: 1; */
-    flex: 5 1 0;
+    flex: 7 1 0%;
     margin: 0 5px 5px 0;
+  }
+}
+@media (min-width: 1600px) {
+  .m-all__m-content {
+    /* order: 1; */
+    flex: 5 1 0%;
   }
 }
 .m-all__m-sidebar {
@@ -1108,7 +1116,7 @@ padding: 0; */
   }
   .m-sidebar__leftbar {
     order: -1;
-    flex: 1 1 0;
+    flex: 2 1 0%;
   }
   .m-sidebar__menu {
     flex: 0 1 auto;
@@ -1116,6 +1124,12 @@ padding: 0; */
   .m-sidebar__menu-grow {
     display: block;
     flex: 1 1 auto;
+  }
+}
+@media (min-width: 1600px) {
+  .m-sidebar__leftbar {
+    order: -1;
+    flex: 1 1 0%;
   }
 }
 .m-sidebar__reklama {
@@ -1134,7 +1148,7 @@ padding: 0; */
   .m-sidebar__rightbar {
     flex-direction: column;
     justify-content: flex-start;
-    flex: 1 1 0;
+    flex: 1 1 0%;
     background-color: #ecefec;
     border-radius: 5px;
     box-shadow: 3px 3px 3px #666;
@@ -1149,6 +1163,9 @@ padding: 0; */
   border-radius: 5px;
   box-shadow: 3px 3px 3px #666;
   margin: 10px auto 0;
+}
+.m-content__new-article div {
+  max-width: 100%;
 }
 .new-article__header {
   text-align: center;
@@ -1207,6 +1224,12 @@ margin: 10px 0; */
 .new-article__link-more a:hover {
   text-decoration: none;
 }
+@media (max-width: 767px) {
+  .new-article__img {
+    max-width: 100%;
+    flex-shrink: 0;
+  }
+}
 .search-banner__banner-wrap {
   text-align: center;
   background-image: url("/web/img/fon-menu2.jpg");
@@ -1218,9 +1241,9 @@ margin: 10px 0; */
   min-height: 50px;
   display: -webkit-flex;
   display: -moz-flex;
-  display: -ms-flex;
+  /* display: -ms-flex; */
   display: -o-flex;
-  display: flex;
+  /* display: flex; */
 }
 .search-banner__banner-wrap a {
   margin: auto;
@@ -1228,6 +1251,7 @@ margin: 10px 0; */
 .m-content__banner {
   margin: 10px auto 0;
   text-align: center;
+  flex-shrink: 0;
 }
 @media (max-width: 767px) {
   .search-banner__banner-wrap {
@@ -1354,12 +1378,15 @@ margin: 10px 0; */
     letter-spacing: 0.02em;
     margin: 5px;
     padding: 5px;
-    flex: 1;
+    flex: 1 1 0%;
   }
   .search-banner {
     flex-direction: row-reverse;
     justify-content: space-between;
     max-width: 100%;
+  }
+  .search-banner__banner {
+    flex: 1 1 0%;
   }
 }
 .m-footer {
@@ -1521,9 +1548,11 @@ margin: 10px 0; */
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  max-width: 100%;
 }
 .catalog-item__img {
   max-width: 250px;
+  max-height: 250px;
   margin: 10px;
   padding: 5px;
   border: 1px dashed;
@@ -1535,6 +1564,7 @@ margin: 10px 0; */
   margin: 10px 0;
   text-align: justify;
   text-indent: 40px;
+  max-width: 100%;
 }
 .catalog-item__details {
   display: flex;
@@ -1653,6 +1683,8 @@ margin: 10px 0; */
   }
   .catalog-item__img {
     max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
   }
 }
 .m-content__wrapper a {
@@ -1709,6 +1741,7 @@ margin: 10px 0; */
 .article-text {
   padding: 0 10px;
   font-family: Verdana, Geneva, sans-serif;
+  flex-shrink: 0;
 }
 .article-text p {
   line-height: 1.3;
@@ -1834,6 +1867,7 @@ margin: 10px 0; */
   border-radius: 10px;
   padding: 10px;
   box-shadow: 3px 3px 3px #292626;
+  flex-shrink: 0;
 }
 .text-header__h3 {
   font: bold 16px Verdana, Arial, Helvetica, sans-serif;
@@ -1930,7 +1964,8 @@ margin: 10px 0; */
 .comment__item .comment__text {
   border-radius: 5px;
   margin: 0 0 7px;
-  padding: 10px 10px 0;
+  padding: 10px;
+  font-size: 16px;
 }
 .comment__item .comment__login {
   font-size: 16px;

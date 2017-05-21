@@ -1,2 +1,14 @@
 User-agent: *
-Disallow:
+Disallow: /catalog
+Disallow: /contacts
+Disallow: /guestbook
+Disallow: /reg
+Disallow: /search
+Disallow: /archiveNews
+Disallow: /mc
+Disallow: /admin
+Disallow: /about
+Disallow: /types
+Disallow: /map
+Disallow: /news/id/1
+Sitemap: http://kuklastadt.ru/sitemap.xml

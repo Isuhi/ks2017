@@ -7,20 +7,15 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use app\components\SliderRundWidget;
 
-
-//$this->title = Yii::$app->name;
-
 ?>
-
-
 		<aside class="search-banner__banner">
-			<div class="search-banner__banner-wrap"> 
-				<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_narodnaja_v3.jpg" width="500" height="50" border="0" alt="dif" /></a>
+			<div class="search-banner__banner-wrap">
+				<?=  Html::a(Html::img('/web/files/global/reclama/ks_500x50_valjanaja_v2.jpg',	['width' => 500,'height' => 50,	'alt' => 'Валяные куклы и игрушки на сайте KuklaStadt'	]),	'/type/kukly-svalyanye-iz-shersti', ['alt' => 'Все валяные куклы и игрушки',	'title' => 'Все валяные куклы и игрушки'])?>
 			</div>
 		</aside><!-- ./search-banner__banner -->
 		<aside class="search-banner__banner">
 			<div class="search-banner__banner-wrap"> 
-				<a href="#" target=_blank><img src="/web/files/global/reclama/ks_500x50_valjanaja_v2.jpg" width="500" height="50" border="0" alt="ssd" /></a>
+				<?=  Html::a(Html::img('/web/files/global/reclama/ks_500x50_narodnaja_v3.jpg', ['width' => 500, 'height' => 50, 'alt' => 'Народные тряпичные куклы на сайте KuklaStadt']), '/category/tryapichnaya-kukla', ['alt' => 'Все тряпичные народные куклы','title' => 'Все тряпичные народные куклы'])?>
 			</div>
 		</aside><!-- ./search-banner__banner -->
 	</section>
@@ -36,8 +31,9 @@ use app\components\SliderRundWidget;
 							<?php // debug($model);?>
 							Здравствуйте, <?= $model->username ?>!
 							<?php else:?>
-							Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h2>
+							Здравствуйте, уважаемые посетители сайта "KuklaStadt"!
 						<?php endif;?>
+							</h2>
 		        <h1 class="text-header__h1">KuklaStadt  - сайт о куклах, про кукол и о том, что есть для кукол</h1>
 					</header><!-- ./text-header -->
 					<div class="text_main">
@@ -76,7 +72,9 @@ use app\components\SliderRundWidget;
 							<?= Html::img("/web/files/global/maxi/{$newArticle->img}", ['alt' => $newArticle->title, 'title' => $newArticle->title]) ?>
 						</a>
 	        </figure>
-	        <p class="new-article__p"><?= $newArticle->anons ?></p>
+					<div>
+					 <?= $newArticle->anons ?>
+					</div>
 	        <aside class="new-article__details">
 	        	<p class="new-article__date">Дата: <?= Yii::$app->formatter->asDate($newArticle->created_at, 'dd.MM.yyyy');?> г.</p>
 	          <p class="new-article__link-more">
@@ -105,13 +103,13 @@ use app\components\SliderRundWidget;
 				<section class="m-all__m-sidebar m-sidebar m-sidebar__rightbar">
 					<aside class="m-sidebar__reklama">
 						<div class="block_reklami-right">
-							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_240x400_mc.gif" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
+							<?=  Html::a(Html::img('/web/files/global/reclama/ks_240x400_mc.gif', ['alt' => 'Мастер-классы кукол на сайте KuklaStadt']), '/master-classes', ['alt' => 'Мастер-классы кукол на сайте KuklaStadt','title' => 'Мастер-классы кукол на сайте KuklaStadt'])?>
 						</div>
 					</aside>
 					<aside class="m-sidebar__reklama">
 						<div class="block_reklami-right">
-							<a href="http://suharikisdegtem.ru/"><img src="/web/files/global/reclama/ks_240x400_val.gif" alt="Магазин подарков 'Сухарики с Дегтем'"></a>
-						</div><!-- /.m-content__wrapper -->
+							<?=  Html::a(Html::img('/web/files/global/reclama/ks_240x400_val.gif', ['alt' => 'Валяные игрушки на сайте KuklaStadt']), '/type/kukly-svalyanye-iz-shersti', ['alt' => 'Валяные игрушки на сайте KuklaStadt','title' => 'Валяные игрушки на сайте KuklaStadt'])?>
+						</div><!-- /.block_reklami-right -->
 					</aside>
 				</section><!-- ./m-all__m-sidebar m-sidebar__rightbar -->
 		</section><!-- /.m-all__m-content -->

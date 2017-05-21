@@ -2,6 +2,7 @@
  
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use yii\helpers\Url;
  
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -12,12 +13,15 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-		<link rel="shortcut icon" href="/web/favicon.ico" type="image/x-icon">
+		<!--<link rel="shortcut icon" href="/web/favicon.ico" type="image/x-icon">-->
+		<?php $this->registerLinkTag(['rel' => 'shortcut icon', 'type' => 'image/x-icon', 'href' => Url::to(['/web/favicon.ico'])]); ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
 </head>
 <body class="body-ks">
  

@@ -48,10 +48,12 @@
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
+	max-width: 100%;
 }
 
 .catalog-item__img {
 	max-width: 250px;
+	max-height: 250px;
 	margin: 10px;
 	padding: 5px;
 	border: 1px dashed;
@@ -64,6 +66,7 @@
   margin: 10px 0;
   text-align: justify;
   text-indent: 40px;
+  max-width: 100%;
 }
 
 .catalog-item__details {
@@ -196,5 +199,7 @@
 	}
 	.catalog-item__img {
 		max-width: 150px;
+		min-width: 150px;
+		max-height: 150px;
 	}
 }

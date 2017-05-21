@@ -64,12 +64,17 @@ class ArticlesController extends Controller{
 				$commentForm->role = 'guest';
 			}
 			
+//debug(Yii::$app->request->post());	
 			$commentForm->article_id = $article_id['id'];
+//debug(Yii::$app->request->bodyParams);
+//debug($_POST);
+//debug(Yii::$app->request->bodyParams['parent_id']);
+//debug(Yii::$app->request->getBodyParam('CommentsForm')['parent_id']);
 
-			$commentForm->parent_id = Yii::$app->request->post()[CommentsForm]['parent_id'];
+			$commentForm->parent_id = Yii::$app->request->getBodyParam('CommentsForm')['parent_id'];
+//			$commentForm->parent_id = Yii::$app->request->post()['CommentsForm']['parent_id'];
 			if($commentForm->load(Yii::$app->request->post())){
-
-//debug($commentForm);				
+//				debug($commentForm);
 				if(Yii::$app->user->isGuest){
 					if($this->un($commentForm->username) || $this->em($commentForm->email)){
 						Yii::$app->session->setFlash('error', 'Используются данные зарегистрированного пользователя. Войдите на сайт с этими данными или используйте другие данные.');
