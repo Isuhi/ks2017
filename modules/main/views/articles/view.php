@@ -48,27 +48,26 @@ $this->params['breadcrumbs'][] = $this->title;
 						Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h2>
 					<?php endif;?>
 				</header><!-- ./text-header -->
-				<article class="article-text">
+				<article class="article-text" itemscope itemtype="http://schema.org/Article">
 				<header class="text-header">
-					<h1 class="text-header__h1"><?= $articles -> title ?></h1>
+					<h1 class="text-header__h1" itemprop="headline"><?= $articles -> title ?></h1>
 				</header><!-- ./text-header -->
 				<aside class="article-data">
 					<ul class="article-data__items">
 						<li class="article-data__item">
-							Статья из категории материалов: <a href="<?= Url::to(['catalog/type', 'alias' => $articles->type->alias]) ?>"><?= $articles->type->name ?></a>
+							Статья из категории материалов: <a href="<?= Url::to(['catalog/type', 'alias' => $articles->type->alias]) ?>"><span itemprop="articleSection"><?= $articles->type->name ?></span></a>
 						</li>
-						<li class="article-data__item">Дата публикации: <?= Yii::$app->formatter->asDate($articles->created_at, 'dd-MM-yyyy');?> г.</li>
+						<li class="article-data__item">Дата публикации: <span itemprop="datePublished"><?= Yii::$app->formatter->asDate($articles->created_at, 'dd-MM-yyyy');?> г.</span></li>
 						<?php if($articles->created_at < $articles->updated_at): ?>
-						<li class="article-data__item">Дата обновления: <?= Yii::$app->formatter->asDate($articles->updated_at, 'dd-MM-yyyy');?> г.</li>
+						<li class="article-data__item">Дата обновления: <span itemprop="dateModified"><?= Yii::$app->formatter->asDate($articles->updated_at, 'dd-MM-yyyy');?> г.</span></li>
 						<?php endif; ?>
-						<li class="article-data__item">Автор статьи: <?= $articles -> author ?></li>
+						<li class="article-data__item">Автор статьи: <span itemprop="author"><?= $articles -> author ?></span></li>
 						<li class="article-data__item">Количество просмотров: <?= $articles -> view ?></li>
 					</ul>
 				</aside>
-				<header class="text-header">
-					<h3 class="text-header__h3-welcome">Здравствуйте, уважаемые посетители сайта "KuklaStadt"!</h3>
-				</header><!-- ./text-header -->
-				<?= $articles->text ?>		
+<span itemprop="articleBody">
+				<?= $articles->text ?>
+	</span>
 					<div class="article-end">
 						<p>. . . . .</p>
 					</div><!-- /.article-end -->
